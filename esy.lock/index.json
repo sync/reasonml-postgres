@@ -1,5 +1,5 @@
 {
-  "checksum": "2c9c62ba8b0612f372f40e29a4b4410e",
+  "checksum": "eae953e99a99a197741e9e751eeecdb6",
   "root": "reasonml-postgres@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -57,6 +57,7 @@
         "@opam/graphql@opam:0.9.0@20b3dd7d", "@opam/fmt@opam:0.8.6@a06c130d",
         "@opam/dune@opam:1.10.0@b15ce221",
         "@opam/decoders-yojson@opam:0.2.0@addc2816",
+        "@opam/conf-openssl@no-source:@f9c7aef0",
         "@opam/cohttp-lwt-unix@opam:2.0.0@2055e2ef",
         "@esy-ocaml/reason@3.4.0@d41d8cd9"
       ],
@@ -459,12 +460,12 @@
       "overrides": [],
       "dependencies": [
         "ocaml@4.6.10@d41d8cd9", "@opam/dune@opam:1.10.0@b15ce221",
-        "@opam/conf-openssl@opam:1@88fa7998",
+        "@opam/conf-openssl@no-source:@f9c7aef0",
         "@opam/base-unix@opam:base@87d0b2eb",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
-        "ocaml@4.6.10@d41d8cd9", "@opam/conf-openssl@opam:1@88fa7998",
+        "ocaml@4.6.10@d41d8cd9", "@opam/conf-openssl@no-source:@f9c7aef0",
         "@opam/base-unix@opam:base@87d0b2eb"
       ]
     },
@@ -2150,23 +2151,22 @@
       ],
       "devDependencies": []
     },
-    "@opam/conf-openssl@opam:1@88fa7998": {
-      "id": "@opam/conf-openssl@opam:1@88fa7998",
+    "@opam/conf-openssl@no-source:@f9c7aef0": {
+      "id": "@opam/conf-openssl@no-source:@f9c7aef0",
       "name": "@opam/conf-openssl",
-      "version": "opam:1",
-      "source": {
-        "type": "install",
-        "source": [ "no-source:" ],
-        "opam": {
-          "name": "conf-openssl",
-          "version": "1",
-          "path": "esy.lock/opam/conf-openssl.1"
+      "version": "no-source:",
+      "source": { "type": "install", "source": [ "no-source:" ] },
+      "overrides": [
+        {
+          "dependencies": {
+            "@opam/conf-pkg-config": "*",
+            "@esy-packages/esy-openssl": "esy-packages/esy-openssl#65efbc9"
+          }
         }
-      },
-      "overrides": [],
+      ],
       "dependencies": [
         "@opam/conf-pkg-config@opam:1.1@da0b7ce6",
-        "@esy-ocaml/substs@0.0.1@d41d8cd9"
+        "@esy-packages/esy-openssl@archive:https://github.com/openssl/openssl/archive/OpenSSL_1_1_1b.tar.gz#sha1:1b09930a6099c6c8fa15dd6c6842e134e65e0a31@00057677"
       ],
       "devDependencies": []
     },
@@ -2642,6 +2642,22 @@
       "devDependencies": [
         "ocaml@4.6.10@d41d8cd9", "@opam/base-bytes@opam:base@19d0c2ff"
       ]
+    },
+    "@esy-packages/esy-openssl@archive:https://github.com/openssl/openssl/archive/OpenSSL_1_1_1b.tar.gz#sha1:1b09930a6099c6c8fa15dd6c6842e134e65e0a31@00057677": {
+      "id":
+        "@esy-packages/esy-openssl@archive:https://github.com/openssl/openssl/archive/OpenSSL_1_1_1b.tar.gz#sha1:1b09930a6099c6c8fa15dd6c6842e134e65e0a31@00057677",
+      "name": "@esy-packages/esy-openssl",
+      "version":
+        "archive:https://github.com/openssl/openssl/archive/OpenSSL_1_1_1b.tar.gz#sha1:1b09930a6099c6c8fa15dd6c6842e134e65e0a31",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://github.com/openssl/openssl/archive/OpenSSL_1_1_1b.tar.gz#sha1:1b09930a6099c6c8fa15dd6c6842e134e65e0a31"
+        ]
+      },
+      "overrides": [ "esy.lock/overrides/000576771cef51fdd250f66f22238a27" ],
+      "dependencies": [],
+      "devDependencies": []
     },
     "@esy-ocaml/substs@0.0.1@d41d8cd9": {
       "id": "@esy-ocaml/substs@0.0.1@d41d8cd9",

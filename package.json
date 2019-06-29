@@ -48,6 +48,7 @@
   "dependencies": {
     "@esy-ocaml/reason": "*",
     "@opam/cohttp-lwt-unix": "*",
+    "@opam/conf-openssl": "*",
     "@opam/decoders-yojson": "*",
     "@opam/dune": "*",
     "@opam/fmt": "*",
@@ -66,6 +67,15 @@
     "@opam/merlin": "*"
   },
   "resolutions": {
-    "pesy": "esy/pesy#ba6359f25621280a8105d2ffc99d75d849c0d95a"
+    "pesy": "esy/pesy#ba6359f25621280a8105d2ffc99d75d849c0d95a",
+    "@opam/conf-openssl": {
+      "source": "no-source:",
+      "override": {
+        "dependencies": {
+          "@opam/conf-pkg-config": "*",
+          "@esy-packages/esy-openssl": "esy-packages/esy-openssl#65efbc9"
+        }
+      }
+    }
   }
 }
