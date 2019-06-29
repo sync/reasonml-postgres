@@ -20,7 +20,18 @@
         "TestReasonmlPostgres.exe": "TestReasonmlPostgres.re"
       }
     },
-    "library": {},
+    "library": {
+      "require": [
+        "digestif.c",
+        "cohttp-lwt-unix",
+        "graphql-lwt",
+        "graphql-cohttp",
+        "yojson",
+        "logs.fmt",
+        "fmt.tty",
+        "decoders-yojson"
+      ]
+    },
     "executable": {
       "require": [
         "reasonml-postgres/library"
@@ -35,12 +46,21 @@
     "start": "esy x Server.exe"
   },
   "dependencies": {
-    "@opam/dune": "*",
     "@esy-ocaml/reason": "*",
-    "refmterr": "*",
+    "@opam/cohttp-lwt-unix": "*",
+    "@opam/decoders-yojson": "*",
+    "@opam/dune": "*",
+    "@opam/fmt": "*",
+    "@opam/graphql": "*",
+    "@opam/graphql-cohttp": "*",
+    "@opam/graphql-lwt": "*",
+    "@opam/logs": "*",
+    "@opam/lwt_ssl": "*",
+    "@opam/ppx_deriving_yojson": "*",
+    "@reason-native/rely": "*",
     "ocaml": "~4.6.0",
     "pesy": "*",
-    "@reason-native/rely": "*"
+    "refmterr": "*"
   },
   "devDependencies": {
     "@opam/merlin": "*"

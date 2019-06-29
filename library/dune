@@ -1,1 +1,3 @@
-(library (name Library) (public_name reasonml-postgres.library)) 
+(library (name Library) (public_name reasonml-postgres.library)
+    (libraries digestif.c cohttp-lwt-unix graphql-lwt graphql-cohttp yojson
+        logs.fmt fmt.tty decoders-yojson)) 
