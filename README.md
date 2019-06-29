@@ -14,7 +14,7 @@ reasonml-postgres@0.0.0
 │   require:
 │
 └─executable/
-    name:    ReasonmlPostgresApp.exe
+    name:    Server.exe
     require: reasonml-postgres/library
 ```
 
@@ -32,7 +32,7 @@ esy build
 After building the project, you can run the main binary that is produced.
 
 ```
-esy x ReasonmlPostgresApp.exe
+esy start
 ```
 
 ## Running Tests:
