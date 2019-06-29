@@ -8,3 +8,4 @@ _esy/
 reasonml-postgres.install
 .DS_Store
 *.install
+bootstrap

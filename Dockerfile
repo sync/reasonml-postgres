@@ -36,4 +36,6 @@ COPY . .
 RUN esy install
 RUN esy build
 
-ENTRYPOINT [ "esy start" ]
+RUN esy bash -c 'cp $cur__target_dir/default/executable/Server.exe bootstrap'
+
+ENTRYPOINT [ "./bootstrap" ]
