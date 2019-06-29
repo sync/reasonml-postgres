@@ -1,0 +1,2 @@
+(test (name TestReasonmlPostgres)
+    (libraries reasonml-postgres.library rely.lib)) 

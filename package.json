@@ -1,0 +1,44 @@
+
+{
+  "name": "reasonml-postgres",
+  "version": "0.0.0",
+  "description": "My Project",
+  "esy": {
+    "build": "dune build -p #{self.name}",
+    "release": {
+      "releasedBinaries": ["ReasonmlPostgresApp.exe"]
+    }
+  },
+  "buildDirs": {
+    "test": {
+      "require": ["reasonml-postgres/library", "rely.lib"],
+      "bin": {
+        "TestReasonmlPostgres.exe": "TestReasonmlPostgres.re"
+      }
+    },
+    "library": {},
+    "executable": {
+      "require": ["reasonml-postgres/library"],
+      "bin": {
+        "ReasonmlPostgresApp.exe": "ReasonmlPostgresApp.re"
+      }
+    }
+  },
+  "scripts": {
+    "test": "esy b dune runtest"
+  },
+  "dependencies": {
+    "@opam/dune": "*",
+    "@esy-ocaml/reason": "*",
+    "refmterr": "*",
+    "ocaml": "~4.6.0",
+    "pesy": "*",
+    "@reason-native/rely": "*"
+  },
+  "devDependencies": {
+    "@opam/merlin": "*"
+  },
+  "resolutions": {
+    "pesy": "esy/pesy#ba6359f25621280a8105d2ffc99d75d849c0d95a"
+  }
+}
