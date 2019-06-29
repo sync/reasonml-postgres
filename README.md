@@ -1,7 +1,5 @@
 # reasonml-postgres
 
-[![CircleCI](https://circleci.com/gh/yourgithubhandle/reasonml-postgres/tree/master.svg?style=svg)](https://circleci.com/gh/yourgithubhandle/reasonml-postgres/tree/master)
-
 **Contains the following libraries and executables:**
 
 ```
