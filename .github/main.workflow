@@ -13,6 +13,7 @@ action "Build Docker image" {
 }
 
 # Deploy Filter
+
 action "Deploy branch filter" {
   needs = ["Set Credential Helper for Docker"]
   uses = "actions/bin/filter@master"
@@ -64,6 +65,7 @@ action "Load GKE kube credentials" {
 }
 
 # TODO Add Action to start GitHub Deploy
+
 action "Deploy to GKE" {
   needs = ["Push image to GCR", "Load GKE kube credentials"]
   uses = "docker://gcr.io/cloud-builders/kubectl"
