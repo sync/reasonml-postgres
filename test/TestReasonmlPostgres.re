@@ -1,4 +1,3 @@
-
 module TestFramework =
   Rely.Make({
     let config =
