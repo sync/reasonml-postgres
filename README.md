@@ -41,3 +41,11 @@ esy start
 # Runs the "test" command in `package.json`.
 esy test
 ```
+
+## Kubernetes:
+
+## Create Secrets
+
+```bash
+kubectl create secret generic postgres --from-literal=db-connection='YOUR_DB_CONNECTION'
+```

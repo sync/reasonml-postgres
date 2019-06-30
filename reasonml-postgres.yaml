@@ -24,6 +24,12 @@ spec:
             limits:
               memory: "50Mi"
               cpu: "100m"
+          env:
+            - name: DB_CONNECTION
+              valueFrom:
+                secretKeyRef:
+                  name: postgres
+                  key: db-connection
 
 ---
 kind: Service
