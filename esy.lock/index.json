@@ -1,5 +1,5 @@
 {
-  "checksum": "871dd3fe830e307b14ea9058a331b406",
+  "checksum": "39e17f0b1482b74aed256deca4b8cd34",
   "root": "reasonml-postgres@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -53,10 +53,10 @@
         "@opam/lwt_ssl@opam:1.1.2@ac833920",
         "@opam/lwt_ppx@opam:1.2.2@946c5ba2",
         "@opam/logs@opam:0.6.3@80c08d15",
-        "@opam/graphql-lwt@opam:0.9.0@5b1d17a4",
-        "@opam/graphql-cohttp@opam:0.12.1@33f0a968",
-        "@opam/graphql@opam:0.9.0@20b3dd7d", "@opam/fmt@opam:0.8.6@a06c130d",
-        "@opam/dune@opam:1.10.0@b15ce221",
+        "@opam/graphql-lwt@github:sync/ocaml-graphql-server:graphql-lwt.opam#638be28@d41d8cd9",
+        "@opam/graphql-cohttp@github:sync/ocaml-graphql-server:graphql-cohttp.opam#638be28@d41d8cd9",
+        "@opam/graphql@github:sync/ocaml-graphql-server:graphql.opam#638be28@d41d8cd9",
+        "@opam/fmt@opam:0.8.6@a06c130d", "@opam/dune@opam:1.10.0@b15ce221",
         "@opam/decoders-yojson@opam:0.2.0@addc2816",
         "@opam/conf-openssl@no-source:@f9c7aef0",
         "@opam/cohttp-lwt-unix@opam:2.0.0@2055e2ef",
@@ -1769,53 +1769,44 @@
         "@opam/fmt@opam:0.8.6@a06c130d"
       ]
     },
-    "@opam/graphql-lwt@opam:0.9.0@5b1d17a4": {
-      "id": "@opam/graphql-lwt@opam:0.9.0@5b1d17a4",
+    "@opam/graphql-lwt@github:sync/ocaml-graphql-server:graphql-lwt.opam#638be28@d41d8cd9": {
+      "id":
+        "@opam/graphql-lwt@github:sync/ocaml-graphql-server:graphql-lwt.opam#638be28@d41d8cd9",
       "name": "@opam/graphql-lwt",
-      "version": "opam:0.9.0",
+      "version": "github:sync/ocaml-graphql-server:graphql-lwt.opam#638be28",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/md5/23/2385ce2f537413e9466d13acb11ae7e4#md5:2385ce2f537413e9466d13acb11ae7e4",
-          "archive:https://github.com/andreas/ocaml-graphql-server/releases/download/0.9.0/graphql-0.9.0.tbz#md5:2385ce2f537413e9466d13acb11ae7e4"
-        ],
-        "opam": {
-          "name": "graphql-lwt",
-          "version": "0.9.0",
-          "path": "esy.lock/opam/graphql-lwt.0.9.0"
-        }
+          "github:sync/ocaml-graphql-server:graphql-lwt.opam#638be28"
+        ]
       },
       "overrides": [],
       "dependencies": [
         "ocaml@4.6.10@d41d8cd9", "@opam/lwt@opam:4.2.1@c1888ec9",
-        "@opam/graphql@opam:0.9.0@20b3dd7d",
+        "@opam/graphql@github:sync/ocaml-graphql-server:graphql.opam#638be28@d41d8cd9",
         "@opam/dune@opam:1.10.0@b15ce221", "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
         "ocaml@4.6.10@d41d8cd9", "@opam/lwt@opam:4.2.1@c1888ec9",
-        "@opam/graphql@opam:0.9.0@20b3dd7d"
+        "@opam/graphql@github:sync/ocaml-graphql-server:graphql.opam#638be28@d41d8cd9"
       ]
     },
-    "@opam/graphql-cohttp@opam:0.12.1@33f0a968": {
-      "id": "@opam/graphql-cohttp@opam:0.12.1@33f0a968",
+    "@opam/graphql-cohttp@github:sync/ocaml-graphql-server:graphql-cohttp.opam#638be28@d41d8cd9": {
+      "id":
+        "@opam/graphql-cohttp@github:sync/ocaml-graphql-server:graphql-cohttp.opam#638be28@d41d8cd9",
       "name": "@opam/graphql-cohttp",
-      "version": "opam:0.12.1",
+      "version":
+        "github:sync/ocaml-graphql-server:graphql-cohttp.opam#638be28",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/md5/13/132507408f9c14f205e795293cd7a5de#md5:132507408f9c14f205e795293cd7a5de",
-          "archive:https://github.com/andreas/ocaml-graphql-server/releases/download/0.12.1/graphql-0.12.1.tbz#md5:132507408f9c14f205e795293cd7a5de"
-        ],
-        "opam": {
-          "name": "graphql-cohttp",
-          "version": "0.12.1",
-          "path": "esy.lock/opam/graphql-cohttp.0.12.1"
-        }
+          "github:sync/ocaml-graphql-server:graphql-cohttp.opam#638be28"
+        ]
       },
       "overrides": [],
       "dependencies": [
         "ocaml@4.6.10@d41d8cd9", "@opam/ocplib-endian@opam:1.0@aa720242",
-        "@opam/graphql@opam:0.9.0@20b3dd7d",
+        "@opam/graphql@github:sync/ocaml-graphql-server:graphql.opam#638be28@d41d8cd9",
         "@opam/dune@opam:1.10.0@b15ce221",
         "@opam/digestif@opam:0.7.2@d23e37ef",
         "@opam/crunch@opam:3.0.0@a5e49fd8",
@@ -1826,7 +1817,7 @@
       ],
       "devDependencies": [
         "ocaml@4.6.10@d41d8cd9", "@opam/ocplib-endian@opam:1.0@aa720242",
-        "@opam/graphql@opam:0.9.0@20b3dd7d",
+        "@opam/graphql@github:sync/ocaml-graphql-server:graphql.opam#638be28@d41d8cd9",
         "@opam/digestif@opam:0.7.2@d23e37ef",
         "@opam/crunch@opam:3.0.0@a5e49fd8",
         "@opam/cohttp@opam:2.1.2@0821c01b",
@@ -1834,21 +1825,14 @@
         "@opam/astring@opam:0.8.3@4e5e17d5"
       ]
     },
-    "@opam/graphql@opam:0.9.0@20b3dd7d": {
-      "id": "@opam/graphql@opam:0.9.0@20b3dd7d",
+    "@opam/graphql@github:sync/ocaml-graphql-server:graphql.opam#638be28@d41d8cd9": {
+      "id":
+        "@opam/graphql@github:sync/ocaml-graphql-server:graphql.opam#638be28@d41d8cd9",
       "name": "@opam/graphql",
-      "version": "opam:0.9.0",
+      "version": "github:sync/ocaml-graphql-server:graphql.opam#638be28",
       "source": {
         "type": "install",
-        "source": [
-          "archive:https://opam.ocaml.org/cache/md5/23/2385ce2f537413e9466d13acb11ae7e4#md5:2385ce2f537413e9466d13acb11ae7e4",
-          "archive:https://github.com/andreas/ocaml-graphql-server/releases/download/0.9.0/graphql-0.9.0.tbz#md5:2385ce2f537413e9466d13acb11ae7e4"
-        ],
-        "opam": {
-          "name": "graphql",
-          "version": "0.9.0",
-          "path": "esy.lock/opam/graphql.0.9.0"
-        }
+        "source": [ "github:sync/ocaml-graphql-server:graphql.opam#638be28" ]
       },
       "overrides": [],
       "dependencies": [

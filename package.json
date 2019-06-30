@@ -87,6 +87,9 @@
           "@esy-packages/esy-openssl": "esy-packages/esy-openssl#65efbc9"
         }
       }
-    }
+    },
+    "@opam/graphql": "sync/ocaml-graphql-server:graphql.opam#638be28",
+    "@opam/graphql-cohttp": "sync/ocaml-graphql-server:graphql-cohttp.opam#638be28",
+    "@opam/graphql-lwt": "sync/ocaml-graphql-server:graphql-lwt.opam#638be28"
   }
 }
