@@ -1,5 +1,5 @@
 {
-  "checksum": "eae953e99a99a197741e9e751eeecdb6",
+  "checksum": "871dd3fe830e307b14ea9058a331b406",
   "root": "reasonml-postgres@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -51,6 +51,7 @@
         "ocaml@4.6.10@d41d8cd9", "@reason-native/rely@2.2.0@d41d8cd9",
         "@opam/ppx_deriving_yojson@opam:3.4@73152ee9",
         "@opam/lwt_ssl@opam:1.1.2@ac833920",
+        "@opam/lwt_ppx@opam:1.2.2@946c5ba2",
         "@opam/logs@opam:0.6.3@80c08d15",
         "@opam/graphql-lwt@opam:0.9.0@5b1d17a4",
         "@opam/graphql-cohttp@opam:0.12.1@33f0a968",
@@ -59,7 +60,9 @@
         "@opam/decoders-yojson@opam:0.2.0@addc2816",
         "@opam/conf-openssl@no-source:@f9c7aef0",
         "@opam/cohttp-lwt-unix@opam:2.0.0@2055e2ef",
-        "@esy-ocaml/reason@3.4.0@d41d8cd9"
+        "@opam/caqti-lwt@opam:1.0.0@e3e5606f",
+        "@opam/caqti-driver-postgresql@opam:1.1.0@751ce78c",
+        "@opam/caqti@opam:1.1.0@745559ce", "@esy-ocaml/reason@3.4.0@d41d8cd9"
       ],
       "devDependencies": [ "@opam/merlin@opam:3.3.1@43415979" ]
     },
@@ -741,6 +744,33 @@
         "@opam/base@opam:v0.11.1@6ff71eb3"
       ]
     },
+    "@opam/ppx_tools_versioned@opam:5.2.2@34409c89": {
+      "id": "@opam/ppx_tools_versioned@opam:5.2.2@34409c89",
+      "name": "@opam/ppx_tools_versioned",
+      "version": "opam:5.2.2",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/md5/f7/f78a3c2b4cc3b92702e1f7096a6125fa#md5:f78a3c2b4cc3b92702e1f7096a6125fa",
+          "archive:https://github.com/ocaml-ppx/ppx_tools_versioned/archive/5.2.2.tar.gz#md5:f78a3c2b4cc3b92702e1f7096a6125fa"
+        ],
+        "opam": {
+          "name": "ppx_tools_versioned",
+          "version": "5.2.2",
+          "path": "esy.lock/opam/ppx_tools_versioned.5.2.2"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.6.10@d41d8cd9",
+        "@opam/ocaml-migrate-parsetree@opam:1.3.1@266527bd",
+        "@opam/dune@opam:1.10.0@b15ce221", "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.6.10@d41d8cd9",
+        "@opam/ocaml-migrate-parsetree@opam:1.3.1@266527bd"
+      ]
+    },
     "@opam/ppx_tools@opam:5.1+4.06.0@a9357225": {
       "id": "@opam/ppx_tools@opam:5.1+4.06.0@a9357225",
       "name": "@opam/ppx_tools",
@@ -1122,6 +1152,35 @@
         "@opam/base@opam:v0.11.1@6ff71eb3"
       ]
     },
+    "@opam/postgresql@opam:4.5.0@c7187e14": {
+      "id": "@opam/postgresql@opam:4.5.0@c7187e14",
+      "name": "@opam/postgresql",
+      "version": "opam:4.5.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/sha256/1c/1cca5b3da400e4de060b8e61e8aff9675f67204da27c16a5bc4ec0dca4ca0905#sha256:1cca5b3da400e4de060b8e61e8aff9675f67204da27c16a5bc4ec0dca4ca0905",
+          "archive:https://github.com/mmottl/postgresql-ocaml/releases/download/4.5.0/postgresql-4.5.0.tbz#sha256:1cca5b3da400e4de060b8e61e8aff9675f67204da27c16a5bc4ec0dca4ca0905"
+        ],
+        "opam": {
+          "name": "postgresql",
+          "version": "4.5.0",
+          "path": "esy.lock/opam/postgresql.4.5.0"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.6.10@d41d8cd9", "@opam/stdio@opam:v0.11.0@3b11cb88",
+        "@opam/dune@opam:1.10.0@b15ce221",
+        "@opam/conf-postgresql@opam:1@6adb2777",
+        "@opam/base-bytes@opam:base@19d0c2ff",
+        "@opam/base@opam:v0.11.1@6ff71eb3",
+        "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.6.10@d41d8cd9", "@opam/base-bytes@opam:base@19d0c2ff"
+      ]
+    },
     "@opam/parsexp@opam:v0.11.0@7febd99d": {
       "id": "@opam/parsexp@opam:v0.11.0@7febd99d",
       "name": "@opam/parsexp",
@@ -1489,6 +1548,37 @@
       "devDependencies": [
         "ocaml@4.6.10@d41d8cd9", "@opam/ssl@opam:0.5.7@893f9f78",
         "@opam/lwt@opam:4.2.1@c1888ec9", "@opam/base-unix@opam:base@87d0b2eb"
+      ]
+    },
+    "@opam/lwt_ppx@opam:1.2.2@946c5ba2": {
+      "id": "@opam/lwt_ppx@opam:1.2.2@946c5ba2",
+      "name": "@opam/lwt_ppx",
+      "version": "opam:1.2.2",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/md5/2c/2ce7827948adc611319f9449e4519070#md5:2ce7827948adc611319f9449e4519070",
+          "archive:https://github.com/ocsigen/lwt/archive/4.2.0.tar.gz#md5:2ce7827948adc611319f9449e4519070"
+        ],
+        "opam": {
+          "name": "lwt_ppx",
+          "version": "1.2.2",
+          "path": "esy.lock/opam/lwt_ppx.1.2.2"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.6.10@d41d8cd9",
+        "@opam/ppx_tools_versioned@opam:5.2.2@34409c89",
+        "@opam/ocaml-migrate-parsetree@opam:1.3.1@266527bd",
+        "@opam/lwt@opam:4.2.1@c1888ec9", "@opam/dune@opam:1.10.0@b15ce221",
+        "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.6.10@d41d8cd9",
+        "@opam/ppx_tools_versioned@opam:5.2.2@34409c89",
+        "@opam/ocaml-migrate-parsetree@opam:1.3.1@266527bd",
+        "@opam/lwt@opam:4.2.1@c1888ec9"
       ]
     },
     "@opam/lwt@opam:4.2.1@c1888ec9": {
@@ -2126,6 +2216,23 @@
       "dependencies": [ "@esy-ocaml/substs@0.0.1@d41d8cd9" ],
       "devDependencies": []
     },
+    "@opam/conf-postgresql@opam:1@6adb2777": {
+      "id": "@opam/conf-postgresql@opam:1@6adb2777",
+      "name": "@opam/conf-postgresql",
+      "version": "opam:1",
+      "source": {
+        "type": "install",
+        "source": [ "no-source:" ],
+        "opam": {
+          "name": "conf-postgresql",
+          "version": "1",
+          "path": "esy.lock/opam/conf-postgresql.1"
+        }
+      },
+      "overrides": [],
+      "dependencies": [ "@esy-ocaml/substs@0.0.1@d41d8cd9" ],
+      "devDependencies": []
+    },
     "@opam/conf-pkg-config@opam:1.1@da0b7ce6": {
       "id": "@opam/conf-pkg-config@opam:1.1@da0b7ce6",
       "name": "@opam/conf-pkg-config",
@@ -2421,6 +2528,87 @@
         "ocaml@4.6.10@d41d8cd9", "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [ "ocaml@4.6.10@d41d8cd9" ]
+    },
+    "@opam/caqti-lwt@opam:1.0.0@e3e5606f": {
+      "id": "@opam/caqti-lwt@opam:1.0.0@e3e5606f",
+      "name": "@opam/caqti-lwt",
+      "version": "opam:1.0.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/md5/6f/6fb535971d307094a9f0bfb05ddc711c#md5:6fb535971d307094a9f0bfb05ddc711c",
+          "archive:https://github.com/paurkedal/ocaml-caqti/releases/download/v1.0.0/caqti-1.0.0.tbz#md5:6fb535971d307094a9f0bfb05ddc711c"
+        ],
+        "opam": {
+          "name": "caqti-lwt",
+          "version": "1.0.0",
+          "path": "esy.lock/opam/caqti-lwt.1.0.0"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.6.10@d41d8cd9", "@opam/lwt@opam:4.2.1@c1888ec9",
+        "@opam/logs@opam:0.6.3@80c08d15", "@opam/dune@opam:1.10.0@b15ce221",
+        "@opam/caqti@opam:1.1.0@745559ce", "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.6.10@d41d8cd9", "@opam/lwt@opam:4.2.1@c1888ec9",
+        "@opam/logs@opam:0.6.3@80c08d15", "@opam/caqti@opam:1.1.0@745559ce"
+      ]
+    },
+    "@opam/caqti-driver-postgresql@opam:1.1.0@751ce78c": {
+      "id": "@opam/caqti-driver-postgresql@opam:1.1.0@751ce78c",
+      "name": "@opam/caqti-driver-postgresql",
+      "version": "opam:1.1.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/md5/1d/1dbae4092760be0813823a1936dec1c6#md5:1dbae4092760be0813823a1936dec1c6",
+          "archive:https://github.com/paurkedal/ocaml-caqti/releases/download/v1.1.0/caqti-v1.1.0.tbz#md5:1dbae4092760be0813823a1936dec1c6"
+        ],
+        "opam": {
+          "name": "caqti-driver-postgresql",
+          "version": "1.1.0",
+          "path": "esy.lock/opam/caqti-driver-postgresql.1.1.0"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.6.10@d41d8cd9", "@opam/postgresql@opam:4.5.0@c7187e14",
+        "@opam/dune@opam:1.10.0@b15ce221", "@opam/caqti@opam:1.1.0@745559ce",
+        "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.6.10@d41d8cd9", "@opam/postgresql@opam:4.5.0@c7187e14",
+        "@opam/caqti@opam:1.1.0@745559ce"
+      ]
+    },
+    "@opam/caqti@opam:1.1.0@745559ce": {
+      "id": "@opam/caqti@opam:1.1.0@745559ce",
+      "name": "@opam/caqti",
+      "version": "opam:1.1.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://opam.ocaml.org/cache/md5/1d/1dbae4092760be0813823a1936dec1c6#md5:1dbae4092760be0813823a1936dec1c6",
+          "archive:https://github.com/paurkedal/ocaml-caqti/releases/download/v1.1.0/caqti-v1.1.0.tbz#md5:1dbae4092760be0813823a1936dec1c6"
+        ],
+        "opam": {
+          "name": "caqti",
+          "version": "1.1.0",
+          "path": "esy.lock/opam/caqti.1.1.0"
+        }
+      },
+      "overrides": [],
+      "dependencies": [
+        "ocaml@4.6.10@d41d8cd9", "@opam/uri@opam:2.2.1@6bd26f86",
+        "@opam/ptime@opam:0.8.5@0051d642", "@opam/logs@opam:0.6.3@80c08d15",
+        "@opam/dune@opam:1.10.0@b15ce221", "@esy-ocaml/substs@0.0.1@d41d8cd9"
+      ],
+      "devDependencies": [
+        "ocaml@4.6.10@d41d8cd9", "@opam/uri@opam:2.2.1@6bd26f86",
+        "@opam/ptime@opam:0.8.5@0051d642", "@opam/logs@opam:0.6.3@80c08d15"
+      ]
     },
     "@opam/bos@opam:0.2.0@df49e63f": {
       "id": "@opam/bos@opam:0.2.0@df49e63f",

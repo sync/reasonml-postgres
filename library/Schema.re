@@ -1,3 +1,5 @@
+// redit
+
 open Reddit;
 
 let post: Graphql_lwt.Schema.typ(unit, option(post_data)) =
@@ -44,11 +46,38 @@ let subreddit: Graphql_lwt.Schema.typ(unit, option(subreddit)) =
       [
         field(
           "posts",
-          ~doc="Unique post identifier",
+          ~doc="List of posts",
           ~typ=non_null(list(non_null(post))),
           ~args=Arg.[],
           ~resolve=(_info, p) =>
           p.children
+        ),
+      ]
+    )
+  );
+
+// postgres
+
+open Database;
+
+let link: Graphql_lwt.Schema.typ(unit, option(link)) =
+  Graphql_lwt.Schema.(
+    obj("Link", ~doc="A database link", ~fields=_ =>
+      [
+        field(
+          "id",
+          ~doc="Unique link identifier",
+          ~typ=non_null(int),
+          ~args=Arg.[],
+          ~resolve=(_info, p: link) =>
+          p.id
+        ),
+        field(
+          "title",
+          ~typ=non_null(string),
+          ~args=Arg.[],
+          ~resolve=(_info, p: link) =>
+          p.url
         ),
       ]
     )
@@ -63,6 +92,14 @@ let schema =
         ~args=Arg.[arg("name", ~typ=non_null(string))],
         ~resolve=(_info, (), name) =>
         Reddit.get_subreddit(~name)
+      ),
+      io_field(
+        "links",
+        ~doc="List of database links",
+        ~typ=non_null(list(non_null(link))),
+        ~args=Arg.[],
+        ~resolve=(_info, p) =>
+        Database.get_all_links()
       ),
     ])
   );

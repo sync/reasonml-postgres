@@ -29,7 +29,14 @@
         "yojson",
         "logs.fmt",
         "fmt.tty",
-        "decoders-yojson"
+        "decoders-yojson",
+        "caqti",
+        "caqti-lwt",
+        "caqti-driver-postgresql"
+      ],
+      "preprocess": [
+        "pps",
+        "lwt_ppx"
       ]
     },
     "executable": {
@@ -47,6 +54,9 @@
   },
   "dependencies": {
     "@esy-ocaml/reason": "*",
+    "@opam/caqti": "*",
+    "@opam/caqti-driver-postgresql": "*",
+    "@opam/caqti-lwt": "*",
     "@opam/cohttp-lwt-unix": "*",
     "@opam/conf-openssl": "*",
     "@opam/decoders-yojson": "*",
@@ -56,6 +66,7 @@
     "@opam/graphql-cohttp": "*",
     "@opam/graphql-lwt": "*",
     "@opam/logs": "*",
+    "@opam/lwt_ppx": "*",
     "@opam/lwt_ssl": "*",
     "@opam/ppx_deriving_yojson": "*",
     "@reason-native/rely": "*",
