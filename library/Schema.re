@@ -98,7 +98,7 @@ let schema =
         ~doc="List of database links",
         ~typ=non_null(list(non_null(link))),
         ~args=Arg.[],
-        ~resolve=(_info, p) =>
+        ~resolve=(_info, ()) =>
         Database.get_all_links()
       ),
     ])
