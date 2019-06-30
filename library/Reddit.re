@@ -54,7 +54,7 @@ let subreddit_data_decoder: D.decoder(subreddit_data) = (
 );
 
 let get_subreddit = (~name) => {
-  Logs.info(m => m("Getting subreddit: %s", name));
+  Logs.debug(m => m("Getting subreddit: %s", name));
 
   let url =
     Uri.of_string(Format.sprintf("https://www.reddit.com/r/%s.json", name));
