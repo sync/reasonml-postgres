@@ -73,7 +73,7 @@ let link: Graphql_lwt.Schema.typ(unit, option(link)) =
           p.id
         ),
         field(
-          "title",
+          "url",
           ~typ=non_null(string),
           ~args=Arg.[],
           ~resolve=(_info, p: link) =>
