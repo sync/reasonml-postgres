@@ -83,23 +83,65 @@ let link: Graphql_lwt.Schema.typ(unit, option(link)) =
     )
   );
 
+let set_interval = (s, f, destroy) => {
+  let rec set_interval_loop = (s, f, n) => {
+    let timeout =
+      Lwt_timeout.create(s, () =>
+        if (n > 0) {
+          f();
+          set_interval_loop(s, f, n - 1);
+        } else {
+          destroy();
+        }
+      );
+
+    Lwt_timeout.start(timeout);
+  };
+
+  set_interval_loop(s, f, 5);
+};
+
+let users = ["Anthony", "John", "Paul", "Jason"];
+
 let schema =
   Graphql_lwt.Schema.(
-    schema([
-      io_field(
-        "subreddit",
-        ~typ=subreddit,
-        ~args=Arg.[arg("name", ~typ=non_null(string))],
-        ~resolve=(_info, (), name) =>
-        Reddit.get_subreddit(~name)
-      ),
-      io_field(
-        "links",
-        ~doc="List of database links",
-        ~typ=non_null(list(non_null(link))),
-        ~args=Arg.[],
-        ~resolve=(_info, ()) =>
-        Database.get_all_links()
-      ),
-    ])
+    schema(
+      [
+        io_field(
+          "subreddit",
+          ~typ=subreddit,
+          ~args=Arg.[arg("name", ~typ=non_null(string))],
+          ~resolve=(_info, (), name) =>
+          Reddit.get_subreddit(~name)
+        ),
+        io_field(
+          "links",
+          ~doc="List of database links",
+          ~typ=non_null(list(non_null(link))),
+          ~args=Arg.[],
+          ~resolve=(_info, ()) =>
+          Database.get_all_links()
+        ),
+      ],
+      ~subscriptions=[
+        subscription_field(
+          "subscribe_to_user",
+          ~typ=non_null(string),
+          ~args=Arg.[arg'("intarg", ~typ=int, ~default=42)],
+          ~resolve=(_info, _intarg) => {
+            let (user_stream, push_to_user_stream) = Lwt_stream.create();
+            let destroy_stream = () => push_to_user_stream(None);
+            set_interval(
+              2,
+              () => {
+                let idx = Random.int(List.length(users));
+                push_to_user_stream(Some(List.nth(users, idx)));
+              },
+              destroy_stream,
+            );
+            Lwt_result.return((user_stream, destroy_stream));
+          },
+        ),
+      ],
+    )
   );
