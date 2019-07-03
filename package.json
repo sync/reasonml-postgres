@@ -32,7 +32,9 @@
         "decoders-yojson",
         "caqti",
         "caqti-lwt",
-        "caqti-driver-postgresql"
+        "caqti-driver-postgresql",
+        "jwt",
+        "base64"
       ],
       "preprocess": [
         "pps",
@@ -54,6 +56,7 @@
   },
   "dependencies": {
     "@esy-ocaml/reason": "*",
+    "@opam/base64": "*",
     "@opam/caqti": "*",
     "@opam/caqti-driver-postgresql": "*",
     "@opam/caqti-lwt": "*",
