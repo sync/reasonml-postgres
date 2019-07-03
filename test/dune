@@ -1,2 +1,3 @@
-(test (name TestReasonmlPostgres)
+(executable (name TestReasonmlPostgres)
+    (public_name TestReasonmlPostgres.exe)
     (libraries reasonml-postgres.library rely.lib)) 
