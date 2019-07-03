@@ -1,5 +1,5 @@
 {
-  "checksum": "51bad4442a9e633cdba0fdff7cdb19e0",
+  "checksum": "bbf0f9c1cb15c68b15a0278dd8c73ee0",
   "root": "reasonml-postgres@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -47,7 +47,7 @@
       "overrides": [],
       "dependencies": [
         "refmterr@3.1.10@d41d8cd9", "pesy@github:esy/pesy#75d62cf@d41d8cd9",
-        "ocaml@4.7.1004@d41d8cd9", "@reason-native/rely@2.2.0@d41d8cd9",
+        "ocaml@4.7.1004@d41d8cd9", "@reason-native/rely@3.0.0@d41d8cd9",
         "@opam/ppx_deriving_yojson@opam:3.4@73152ee9",
         "@opam/nocrypto@github:mirleft/ocaml-nocrypto:opam#ed7bb8d911dc340e36d85d335d9edb8339f0932d@d41d8cd9",
         "@opam/lwt_ssl@opam:1.1.2@ac833920",
@@ -118,14 +118,14 @@
       "dependencies": [],
       "devDependencies": []
     },
-    "@reason-native/rely@2.2.0@d41d8cd9": {
-      "id": "@reason-native/rely@2.2.0@d41d8cd9",
+    "@reason-native/rely@3.0.0@d41d8cd9": {
+      "id": "@reason-native/rely@3.0.0@d41d8cd9",
       "name": "@reason-native/rely",
-      "version": "2.2.0",
+      "version": "3.0.0",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://registry.npmjs.org/@reason-native/rely/-/rely-2.2.0.tgz#sha1:85f34f15dcd8547033759d9fccdba03e12a32031"
+          "archive:https://registry.npmjs.org/@reason-native/rely/-/rely-3.0.0.tgz#sha1:b564eefef728da66ab920df319a4abfbfbd994ec"
         ]
       },
       "overrides": [],
