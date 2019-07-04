@@ -16,8 +16,17 @@
         "reasonml-postgres/library",
         "rely.lib"
       ],
+      "flags": [
+        "-linkall",
+        "-g"
+      ]
+    },
+    "testExe": {
+      "require": [
+        "reasonml-postgres/test"
+      ],
       "bin": {
-        "TestReasonmlPostgres.exe": "TestReasonmlPostgres.re"
+        "RunTests.exe": "RunTests.re"
       }
     },
     "library": {
@@ -51,7 +60,7 @@
     }
   },
   "scripts": {
-    "test": "esy b dune runtest",
+    "test": "esy x RunTests.exe",
     "start": "esy x Server.exe"
   },
   "dependencies": {
