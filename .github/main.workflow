@@ -72,7 +72,7 @@ action "Deploy to GKE" {
   env = {
     PROJECT_ID = "radiant-destiny-219301"
     APPLICATION_NAME = "reasonml-postgres"
-    DEPLOYMENT_NAME = "reasonml-postgres"
+    DEPLOYMENT_NAME = "reasonml-postgres-deployment"
   }
   runs = "sh -l -c"
   args = ["SHORT_REF=$(echo ${GITHUB_SHA} | head -c7) && cat $GITHUB_WORKSPACE/reasonml-postgres-deployment.yaml | sed 's/PROJECT_ID/'\"$PROJECT_ID\"'/' | sed 's/APPLICATION_NAME/'\"$APPLICATION_NAME\"'/' | sed 's/TAG/'\"$SHORT_REF\"'/' | kubectl apply -f - "]
@@ -82,7 +82,7 @@ action "Verify GKE deployment" {
   needs = ["Deploy to GKE"]
   uses = "docker://gcr.io/cloud-builders/kubectl"
   env = {
-    DEPLOYMENT_NAME = "reasonml-postgres"
+    DEPLOYMENT_NAME = "reasonml-postgres-deployment"
   }
-  args = "rollout status deployment/reasonml-postgres"
+  args = "rollout status deployment/reasonml-postgres-deployment"
 }
