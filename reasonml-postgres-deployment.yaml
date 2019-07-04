@@ -1,25 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reasonml-postgres
-  labels:
-    app: reasonml-postgres
+  name: reasonml-postgres-deployment
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: reasonml-postgres
+      purpose: reasonml-postgres-config
+  replicas: 1
   template:
     metadata:
       labels:
-        app: reasonml-postgres
+        purpose: reasonml-postgres-config
     spec:
-      terminationGracePeriodSeconds: 0
       containers:
-        - name: reasonml-postgres
+        - name: hello-app-container
           image: gcr.io/radiant-destiny-219301/reasonml-postgres:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
+            - name: liveness-port
+              containerPort: 8080
+              hostPort: 80
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: liveness-port
+              httpHeaders:
+                - name: Accept
+                  value: text/html
           resources:
             limits:
               memory: "50Mi"
@@ -30,16 +38,32 @@ spec:
                 secretKeyRef:
                   name: postgres
                   key: db-connection
-
 ---
-kind: Service
-apiVersion: v1
+apiVersion: cloud.google.com/v1beta1
+kind: BackendConfig
 metadata:
-  name: reasonml-postgres
+  name: reasonml-postgres-backendconfig
 spec:
+  timeoutSec: 86400
+  connectionDraining:
+    drainingTimeoutSec: 3600
+  sessionAffinity:
+    affinityType: "CLIENT_IP"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reasonml-postgres-service
+  labels:
+    purpose: reasonml-postgres-config
+  annotations:
+    cloud.google.com/neg: '{"ingress": true}'
+    beta.cloud.google.com/backend-config: '{"ports": {"80":"reasonml-postgres-backendconfig"}}'
+spec:
+  type: NodePort
   selector:
-    app: reasonml-postgres
+    purpose: reasonml-postgres-config
   ports:
-    - protocol: TCP
-      port: 8080
+    - port: 80
+      protocol: TCP
       targetPort: 8080
