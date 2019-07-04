@@ -29,7 +29,7 @@ let () = {
   let callback =
     Graphql_cohttp_lwt.make_callback(_req => (), Library.Schema.schema);
 
-  let port = 8008;
+  let port = 8080;
   let server = Cohttp_lwt_unix.Server.make_response_action(~callback, ());
   let mode = `TCP(`Port(port));
 
