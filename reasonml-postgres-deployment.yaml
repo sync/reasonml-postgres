@@ -13,7 +13,7 @@ spec:
         purpose: reasonml-postgres-config
     spec:
       containers:
-        - name: hello-app-container
+        - name: reasonml-postgres-container
           image: gcr.io/radiant-destiny-219301/reasonml-postgres:latest
           imagePullPolicy: Always
           ports:
