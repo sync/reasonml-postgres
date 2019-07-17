@@ -69,7 +69,12 @@
     "@opam/caqti": "*",
     "@opam/caqti-driver-postgresql": "*",
     "@opam/caqti-lwt": "*",
-    "@opam/cohttp-lwt-unix": "*",
+    "@opam/cohttp": "2.1.2",
+    "@opam/cohttp-lwt": "2.0.0",
+    "@opam/cohttp-lwt-unix": "2.0.0",
+    "@opam/conduit": "1.4.0",
+    "@opam/conduit-lwt": "1.4.0",
+    "@opam/conduit-lwt-unix": "1.4.0",
     "@opam/conf-openssl": "*",
     "@opam/decoders-yojson": "*",
     "@opam/dune": "*",
@@ -81,15 +86,17 @@
     "@opam/logs": "*",
     "@opam/lwt_ppx": "*",
     "@opam/lwt_ssl": "*",
+    "@opam/macaddr": "3.1.0",
     "@opam/nocrypto": "*",
     "@opam/ppx_deriving_yojson": "*",
     "@reason-native/rely": "*",
     "ocaml": "4.7.x",
     "pesy": "*",
-    "refmterr": "*"
+    "refmterr": "3.1.10"
   },
   "devDependencies": {
-    "@opam/merlin": "*"
+    "@opam/merlin": "*",
+    "@opam/utop": "*"
   },
   "resolutions": {
     "pesy": "esy/pesy#e690530",
