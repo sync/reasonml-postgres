@@ -83,8 +83,8 @@
     "@opam/lwt_ssl": "*",
     "@opam/nocrypto": "*",
     "@opam/ppx_deriving_yojson": "*",
-    "@reason-native/rely": "~3.0.0",
-    "ocaml": "~4.7.1000",
+    "@reason-native/rely": "*",
+    "ocaml": "4.7.x",
     "pesy": "*",
     "refmterr": "*"
   },
@@ -92,7 +92,7 @@
     "@opam/merlin": "*"
   },
   "resolutions": {
-    "pesy": "esy/pesy#75d62cf",
+    "pesy": "esy/pesy#e690530",
     "@opam/conf-openssl": {
       "source": "no-source:",
       "override": {
