@@ -33,6 +33,7 @@
       "require": [
         "digestif.c",
         "cohttp-lwt-unix",
+        "graphql",
         "graphql-lwt",
         "graphql-cohttp",
         "yojson",
@@ -66,18 +67,11 @@
   "dependencies": {
     "@esy-ocaml/reason": "*",
     "@opam/base64": "*",
-    "@opam/caqti": "*",
     "@opam/caqti-driver-postgresql": "*",
     "@opam/caqti-lwt": "*",
-    "@opam/cohttp": "2.1.2",
-    "@opam/cohttp-lwt": "2.0.0",
-    "@opam/cohttp-lwt-unix": "2.0.0",
-    "@opam/conduit": "1.4.0",
-    "@opam/conduit-lwt": "1.4.0",
-    "@opam/conduit-lwt-unix": "1.4.0",
-    "@opam/conf-openssl": "*",
+    "@opam/cohttp-lwt-unix": "*",
     "@opam/decoders-yojson": "*",
-    "@opam/dune": "*",
+    "@opam/digestif": "*",
     "@opam/fmt": "*",
     "@opam/graphql": "*",
     "@opam/graphql-cohttp": "*",
@@ -85,34 +79,22 @@
     "@opam/jwt": "*",
     "@opam/logs": "*",
     "@opam/lwt_ppx": "*",
-    "@opam/lwt_ssl": "*",
-    "@opam/macaddr": "3.1.0",
-    "@opam/nocrypto": "*",
-    "@opam/ppx_deriving_yojson": "*",
-    "@reason-native/rely": "*",
-    "ocaml": "4.7.x",
-    "pesy": "*",
-    "refmterr": "3.1.10"
+    "ocaml": "4.7.x"
   },
   "devDependencies": {
+    "@opam/dune": "*",
     "@opam/merlin": "*",
-    "@opam/utop": "*"
+    "@opam/utop": "*",
+    "@reason-native/rely": "*",
+    "pesy": "*",
+    "refmterr": "*"
   },
   "resolutions": {
-    "pesy": "esy/pesy#e690530",
-    "@opam/conf-openssl": {
-      "source": "no-source:",
-      "override": {
-        "dependencies": {
-          "@opam/conf-pkg-config": "*",
-          "@esy-packages/esy-openssl": "esy-packages/esy-openssl#65efbc9"
-        }
-      }
-    },
     "@opam/graphql": "sync/ocaml-graphql-server:graphql.opam#b0656b2",
     "@opam/graphql-cohttp": "sync/ocaml-graphql-server:graphql-cohttp.opam#b0656b2",
     "@opam/graphql-lwt": "sync/ocaml-graphql-server:graphql-lwt.opam#b0656b2",
+    "@opam/jwt": "besport/ocaml-jwt:jwt.opam#6563a10",
     "@opam/nocrypto": "mirleft/ocaml-nocrypto:opam#ed7bb8d911dc340e36d85d335d9edb8339f0932d",
-    "@opam/jwt": "besport/ocaml-jwt:jwt.opam#6563a10"
+    "pesy": "esy/pesy#e690530"
   }
 }
