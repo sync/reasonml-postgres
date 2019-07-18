@@ -46,6 +46,15 @@ esy start
 esy test
 ```
 
+## Runnin Repl:
+
+```
+esy dune utop library
+#require "rtop";;
+open Library;
+#show Schema;
+```
+
 ## Kubernetes:
 
 ## Create Secrets

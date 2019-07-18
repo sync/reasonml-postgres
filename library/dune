@@ -1,5 +1,5 @@
 (library (name Library) (public_name reasonml-postgres.library)
-    (libraries digestif.c cohttp-lwt-unix graphql-lwt graphql-cohttp yojson
-        logs.fmt fmt.tty decoders-yojson caqti caqti-lwt
+    (libraries digestif.c cohttp-lwt-unix graphql graphql-lwt graphql-cohttp
+        yojson logs.fmt fmt.tty decoders-yojson caqti caqti-lwt
         caqti-driver-postgresql jwt base64)
     (preprocess (pps lwt_ppx))) 
