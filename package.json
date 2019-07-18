@@ -70,6 +70,7 @@
     "@opam/caqti-driver-postgresql": "*",
     "@opam/caqti-lwt": "*",
     "@opam/cohttp-lwt-unix": "*",
+    "@opam/conf-openssl": "*",
     "@opam/decoders-yojson": "*",
     "@opam/digestif": "*",
     "@opam/fmt": "*",
@@ -79,7 +80,8 @@
     "@opam/jwt": "*",
     "@opam/logs": "*",
     "@opam/lwt_ppx": "*",
-    "ocaml": "4.7.x"
+    "ocaml": "4.7.x",
+    "@opam/lwt_ssl": "*"
   },
   "devDependencies": {
     "@esy-ocaml/rtop": "*",
@@ -88,7 +90,7 @@
     "@opam/utop": "*",
     "@reason-native/rely": "*",
     "pesy": "*",
-    "refmterr": "*"
+    "refmterr": "3.1.10"
   },
   "resolutions": {
     "@opam/graphql": "sync/ocaml-graphql-server:graphql.opam#b0656b2",
