@@ -1,5 +1,5 @@
 {
-  "checksum": "efdeb1d20cb642d0ec92fb79fcc60b80",
+  "checksum": "3655fe3508bd6c05c0b61624cc521b75",
   "root": "reasonml-postgres@link-dev:./package.json",
   "node": {
     "refmterr@3.2.1@d41d8cd9": {
@@ -52,7 +52,7 @@
         "refmterr@3.2.1@d41d8cd9", "pesy@github:esy/pesy#e690530@d41d8cd9",
         "@reason-native/rely@3.0.0@d41d8cd9",
         "@opam/utop@opam:2.4.0@e9165610", "@opam/merlin@opam:3.3.2@7a364181",
-        "@opam/dune@opam:1.10.0@b15ce221"
+        "@opam/dune@opam:1.10.0@b15ce221", "@esy-ocaml/rtop@3.3.0@d41d8cd9"
       ]
     },
     "pesy@github:esy/pesy#e690530@d41d8cd9": {
@@ -2977,6 +2977,27 @@
       },
       "overrides": [],
       "dependencies": [],
+      "devDependencies": []
+    },
+    "@esy-ocaml/rtop@3.3.0@d41d8cd9": {
+      "id": "@esy-ocaml/rtop@3.3.0@d41d8cd9",
+      "name": "@esy-ocaml/rtop",
+      "version": "3.3.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/@esy-ocaml/rtop/-/rtop-3.3.0.tgz#sha1:f75ec07498a32f3fd029851975fa5b49fb9dcac4"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [
+        "@opam/utop@opam:2.4.0@e9165610", "@opam/result@opam:1.4@6fb665c3",
+        "@opam/ocamlfind@opam:1.8.0@f744a0c5",
+        "@opam/jbuilder@opam:transition@58bdfe0a",
+        "@esy-ocaml/substs@0.0.1@d41d8cd9",
+        "@esy-ocaml/reason@3.5.0@d41d8cd9",
+        "@esy-ocaml/esy-installer@0.0.0@d41d8cd9"
+      ],
       "devDependencies": []
     },
     "@esy-ocaml/reason@3.5.0@d41d8cd9": {

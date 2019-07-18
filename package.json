@@ -82,6 +82,7 @@
     "ocaml": "4.7.x"
   },
   "devDependencies": {
+    "@esy-ocaml/rtop": "*",
     "@opam/dune": "*",
     "@opam/merlin": "*",
     "@opam/utop": "*",
