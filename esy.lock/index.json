@@ -1,5 +1,5 @@
 {
-  "checksum": "b1ea626858fc938ef799b1d9ba35518a",
+  "checksum": "0bf5ad915ecb2f65a299b4f2fc7cdf83",
   "root": "reasonml-postgres@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -50,6 +50,7 @@
         "@opam/lwt_ppx@opam:1.2.2@ee59a0be",
         "@opam/logs@opam:0.6.3@80c08d15",
         "@opam/jwt@github:besport/ocaml-jwt:jwt.opam#6563a10@d41d8cd9",
+        "@opam/graphql_ppx@github:baransu/graphql_ppx:esy.json#73921cf30be52761fea38c5ac913bd658a6a0917@d41d8cd9",
         "@opam/graphql-lwt@github:sync/ocaml-graphql-server:graphql-lwt.opam#b0656b2@d41d8cd9",
         "@opam/graphql-cohttp@github:sync/ocaml-graphql-server:graphql-cohttp.opam#b0656b2@d41d8cd9",
         "@opam/graphql@github:sync/ocaml-graphql-server:graphql.opam#b0656b2@d41d8cd9",
@@ -785,20 +786,20 @@
         "ocaml@4.7.1004@d41d8cd9", "@opam/result@opam:1.4@6fb665c3"
       ]
     },
-    "@opam/ppxlib@opam:0.8.0@189fc0d4": {
-      "id": "@opam/ppxlib@opam:0.8.0@189fc0d4",
+    "@opam/ppxlib@opam:0.5.0@7d1fd0a8": {
+      "id": "@opam/ppxlib@opam:0.5.0@7d1fd0a8",
       "name": "@opam/ppxlib",
-      "version": "opam:0.8.0",
+      "version": "opam:0.5.0",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/md5/9b/9b1cfe1ae58d7ad851ed5618c1bf64a0#md5:9b1cfe1ae58d7ad851ed5618c1bf64a0",
-          "archive:https://github.com/ocaml-ppx/ppxlib/archive/0.8.0.tar.gz#md5:9b1cfe1ae58d7ad851ed5618c1bf64a0"
+          "archive:https://opam.ocaml.org/cache/md5/bb/bb278ff6e819e0e4a4d8a005bb2512a4#md5:bb278ff6e819e0e4a4d8a005bb2512a4",
+          "archive:https://github.com/ocaml-ppx/ppxlib/releases/download/0.5.0/ppxlib-0.5.0.tbz#md5:bb278ff6e819e0e4a4d8a005bb2512a4"
         ],
         "opam": {
           "name": "ppxlib",
-          "version": "0.8.0",
-          "path": "esy.lock/opam/ppxlib.0.8.0"
+          "version": "0.5.0",
+          "path": "esy.lock/opam/ppxlib.0.5.0"
         }
       },
       "overrides": [],
@@ -866,14 +867,14 @@
       "overrides": [],
       "dependencies": [
         "ocaml@4.7.1004@d41d8cd9", "@opam/sexplib0@opam:v0.12.0@e432406d",
-        "@opam/ppxlib@opam:0.8.0@189fc0d4",
+        "@opam/ppxlib@opam:0.5.0@7d1fd0a8",
         "@opam/dune@opam:1.10.0@b15ce221",
         "@opam/base@opam:v0.12.2@4eee02b5",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
         "ocaml@4.7.1004@d41d8cd9", "@opam/sexplib0@opam:v0.12.0@e432406d",
-        "@opam/ppxlib@opam:0.8.0@189fc0d4",
+        "@opam/ppxlib@opam:0.5.0@7d1fd0a8",
         "@opam/dune@opam:1.10.0@b15ce221", "@opam/base@opam:v0.12.2@4eee02b5"
       ]
     },
@@ -895,14 +896,14 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/ppxlib@opam:0.8.0@189fc0d4",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/ppxlib@opam:0.5.0@7d1fd0a8",
         "@opam/fieldslib@opam:v0.12.0@5f543501",
         "@opam/dune@opam:1.10.0@b15ce221",
         "@opam/base@opam:v0.12.2@4eee02b5",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/ppxlib@opam:0.8.0@189fc0d4",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/ppxlib@opam:0.5.0@7d1fd0a8",
         "@opam/fieldslib@opam:v0.12.0@5f543501",
         "@opam/dune@opam:1.10.0@b15ce221", "@opam/base@opam:v0.12.2@4eee02b5"
       ]
@@ -1783,6 +1784,28 @@
         "@opam/dune@opam:1.10.0@b15ce221",
         "@opam/domain-name@opam:0.3.0@af116067"
       ]
+    },
+    "@opam/graphql_ppx@github:baransu/graphql_ppx:esy.json#73921cf30be52761fea38c5ac913bd658a6a0917@d41d8cd9": {
+      "id":
+        "@opam/graphql_ppx@github:baransu/graphql_ppx:esy.json#73921cf30be52761fea38c5ac913bd658a6a0917@d41d8cd9",
+      "name": "@opam/graphql_ppx",
+      "version":
+        "github:baransu/graphql_ppx:esy.json#73921cf30be52761fea38c5ac913bd658a6a0917",
+      "source": {
+        "type": "install",
+        "source": [
+          "github:baransu/graphql_ppx:esy.json#73921cf30be52761fea38c5ac913bd658a6a0917"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [
+        "@opam/yojson@opam:1.7.0@7056d985", "@opam/result@opam:1.4@6fb665c3",
+        "@opam/ppxlib@opam:0.5.0@7d1fd0a8",
+        "@opam/ppx_tools_versioned@opam:5.2.3@4994ec80",
+        "@opam/ocaml-migrate-parsetree@opam:1.4.0@7f2e4334",
+        "@opam/dune@opam:1.10.0@b15ce221"
+      ],
+      "devDependencies": []
     },
     "@opam/graphql_parser@opam:0.12.2@abd8b544": {
       "id": "@opam/graphql_parser@opam:0.12.2@abd8b544",
