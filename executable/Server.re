@@ -1,5 +1,3 @@
-open Lwt.Infix;
-
 /** Setup loggers */
 Fmt_tty.setup_std_outputs();
 Logs.set_level(Some(Logs.Info));
