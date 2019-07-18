@@ -63,7 +63,8 @@
   },
   "scripts": {
     "test": "esy x RunTests.exe",
-    "start": "esy x Server.exe"
+    "start": "esy x Server.exe",
+    "format": "bash -c 'refmt --in-place {library,executable,test}/*.re'",
   },
   "dependencies": {
     "@esy-ocaml/reason": "*",
