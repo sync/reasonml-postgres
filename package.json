@@ -6,7 +6,7 @@
     "build": "dune build -p #{self.name}",
     "release": {
       "releasedBinaries": [
-        "Server.exe"
+        "ReasonmlPostgresApp.exe"
       ]
     }
   },
@@ -26,7 +26,7 @@
         "reasonml-postgres/test"
       ],
       "bin": {
-        "RunTests.exe": "RunTests.re"
+        "RunReasonmlPostgresTests.exe": "RunReasonmlPostgresTests.re"
       }
     },
     "library": {
@@ -57,14 +57,15 @@
         "reasonml-postgres/library"
       ],
       "bin": {
-        "Server.exe": "Server.re"
+        "ReasonmlPostgresApp.exe": "ReasonmlPostgresApp.re"
       }
     }
   },
   "scripts": {
-    "test": "esy x RunTests.exe",
-    "start": "esy x Server.exe",
+    "test": "esy x RunReasonmlPostgresTests.exe",
+    "start": "esy x ReasonmlPostgresApp.exe",
     "format": "bash -c 'refmt --in-place {library,executable,test}/*.re'",
+    "update-schema": "scripts/sendIntrospectionQuery.js http://localhost:8080/graphql"
   },
   "dependencies": {
     "@esy-ocaml/reason": "*",
@@ -93,7 +94,9 @@
     "@opam/utop": "*",
     "@reason-native/rely": "*",
     "pesy": "*",
-    "refmterr": "3.1.10"
+    "refmterr": "3.1.10",
+    "yargs": "*",
+    "request": "*"
   },
   "resolutions": {
     "@opam/graphql": "sync/ocaml-graphql-server:graphql.opam#b0656b2",

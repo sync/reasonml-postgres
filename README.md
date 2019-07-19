@@ -6,19 +6,15 @@
 reasonml-postgres@0.0.0
 │
 ├─test/
-│   library name: reasonml-postgres/test
+│   name:    TestReasonmlPostgres.exe
 │   require: reasonml-postgres/library
-│
-testExe/
-│   name:    RunTests.exe
-│   require: reasonml-postgres.test
 │
 ├─library/
 │   library name: reasonml-postgres/library
 │   require:
 │
 └─executable/
-    name:    Server.exe
+    name:    ReasonmlPostgresApp.exe
     require: reasonml-postgres/library
 ```
 

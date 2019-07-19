@@ -10,7 +10,7 @@ module Graphql_cohttp_lwt =
     Cohttp_lwt.Body,
   );
 
-let () = {
+let start = () => {
   let on_exn =
     fun
     | [@implicit_arity] Unix.Unix_error(error, func, arg) =>
@@ -24,8 +24,7 @@ let () = {
       )
     | exn => Logs.err(m => m("Unhandled exception: %a", Fmt.exn, exn));
 
-  let callback =
-    Graphql_cohttp_lwt.make_callback(_req => (), Library.Schema.schema);
+  let callback = Graphql_cohttp_lwt.make_callback(_req => (), Schema.schema);
 
   let port = 8080;
   let server = Cohttp_lwt_unix.Server.make_response_action(~callback, ());
