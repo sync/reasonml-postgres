@@ -1,2 +1,2 @@
-(executable (name Server) (public_name Server.exe)
+(executable (name ReasonmlPostgresApp) (public_name ReasonmlPostgresApp.exe)
     (libraries reasonml-postgres.library)) 

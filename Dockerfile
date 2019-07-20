@@ -36,7 +36,7 @@ COPY . .
 RUN esy install
 RUN esy build
 
-RUN esy bash -c 'cp $cur__target_dir/default/executable/Server.exe bootstrap'
+RUN esy bash -c 'cp $cur__target_dir/default/executable/ReasonmlPostgresApp.exe bootstrap'
 
 # now that we have build everthing, let's just use the binary
 
