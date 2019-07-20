@@ -29,6 +29,24 @@
         "RunReasonmlPostgresTests.exe": "RunReasonmlPostgresTests.re"
       }
     },
+    "integration": {
+      "require": [
+        "reasonml-postgres/library",
+        "rely.lib"
+      ],
+      "flags": [
+        "-linkall",
+        "-g"
+      ]
+    },
+    "integrationExe": {
+      "require": [
+        "reasonml-postgres/integration"
+      ],
+      "bin": {
+        "RunReasonmlPostgresIntegrations.exe": "RunReasonmlPostgresIntegrations.re"
+      }
+    },
     "library": {
       "require": [
         "digestif.c",
@@ -62,8 +80,10 @@
     }
   },
   "scripts": {
-    "test": "esy x RunReasonmlPostgresTests.exe",
     "start": "esy x ReasonmlPostgresApp.exe",
+    "test": "esy x RunReasonmlPostgresTests.exe",
+    "integration": "esy x RunReasonmlPostgresIntegrations.exe",
+    "e2e": "start-server-and-test start http-get://localhost:8080 integration",
     "format": "bash -c 'refmt --in-place {library,executable,test}/*.re'",
     "update-schema": "scripts/sendIntrospectionQuery.js http://localhost:8080/graphql"
   },
@@ -96,7 +116,8 @@
     "pesy": "*",
     "refmterr": "3.1.10",
     "yargs": "*",
-    "request": "*"
+    "request": "*",
+    "start-server-and-test": "*"
   },
   "resolutions": {
     "@opam/graphql": "sync/ocaml-graphql-server:graphql.opam#b0656b2",

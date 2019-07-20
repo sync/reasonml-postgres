@@ -9,7 +9,8 @@ workflow "Build and Deploy" {
 
 action "Build Docker image" {
   uses = "actions/docker/cli@master"
-  args = ["build", "-t", "reasonml-postgres", "."]
+  args = ["build", "-t", "reasonml-postgres", "--build-arg", "DB_CONNECTION=${DB_CONNECTION}", "."]
+  secrets = ["DB_CONNECTION"]
 }
 
 # Deploy Filter

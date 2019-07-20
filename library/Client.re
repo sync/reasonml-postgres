@@ -10,7 +10,7 @@ module Json = {
 };
 
 let execute_query = (~query) => {
-  let url = Uri.of_string("https://dblechoc.app/graphql");
+  let url = Uri.of_string("http://localhost:8080/graphql");
 
   let queryJson =
     `Assoc([
@@ -19,7 +19,7 @@ let execute_query = (~query) => {
     ]);
   let reqBody = Yojson.Safe.to_string(queryJson);
 
-  Logs.info(m => m("reqBody: %s", reqBody));
+  Logs.debug(m => m("reqBody: %s", reqBody));
 
   let body = Cohttp_lwt.Body.of_string(reqBody);
 
@@ -38,6 +38,9 @@ let execute_query = (~query) => {
       Cohttp_lwt.Body.to_string(body)
       >|= (
         body => {
+          Logs.debug(m => m("got body: %s", body));
+
+          // TODO: catch error from either from_string or query parse
           let json_result = Yojson.Basic.from_string(body);
           switch (Json.member_opt("data", json_result)) {
           | Some(data) => Ok(query#parse(data))
