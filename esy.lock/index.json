@@ -1380,7 +1380,7 @@
       "overrides": [],
       "dependencies": [
         "ocaml@4.7.1004@d41d8cd9", "@opam/uchar@opam:0.0.2@c8218eea",
-        "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
         "@opam/cmdliner@opam:1.0.4@93208aac",
@@ -1539,32 +1539,30 @@
         "@opam/dune@opam:1.10.0@b15ce221"
       ]
     },
-    "@opam/topkg@opam:1.0.0@61f4ccf9": {
-      "id": "@opam/topkg@opam:1.0.0@61f4ccf9",
+    "@opam/topkg@opam:1.0.1@a42c631e": {
+      "id": "@opam/topkg@opam:1.0.1@a42c631e",
       "name": "@opam/topkg",
-      "version": "opam:1.0.0",
+      "version": "opam:1.0.1",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/md5/e3/e3d76bda06bf68cb5853caf6627da603#md5:e3d76bda06bf68cb5853caf6627da603",
-          "archive:http://erratique.ch/software/topkg/releases/topkg-1.0.0.tbz#md5:e3d76bda06bf68cb5853caf6627da603"
+          "archive:https://opam.ocaml.org/cache/md5/16/16b90e066d8972a5ef59655e7c28b3e9#md5:16b90e066d8972a5ef59655e7c28b3e9",
+          "archive:http://erratique.ch/software/topkg/releases/topkg-1.0.1.tbz#md5:16b90e066d8972a5ef59655e7c28b3e9"
         ],
         "opam": {
           "name": "topkg",
-          "version": "1.0.0",
-          "path": "esy.lock/opam/topkg.1.0.0"
+          "version": "1.0.1",
+          "path": "esy.lock/opam/topkg.1.0.1"
         }
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/result@opam:1.4@6fb665c3",
-        "@opam/ocamlfind@opam:1.8.0@f744a0c5",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/ocamlfind@opam:1.8.0@f744a0c5",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/result@opam:1.4@6fb665c3",
-        "@opam/ocamlbuild@opam:0.14.0@427a2331"
+        "ocaml@4.7.1004@d41d8cd9", "@opam/ocamlbuild@opam:0.14.0@427a2331"
       ]
     },
     "@opam/stringext@opam:1.6.0@104bc94b": {
@@ -1765,7 +1763,7 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/result@opam:1.4@6fb665c3",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
@@ -1818,7 +1816,7 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
@@ -1869,7 +1867,7 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/result@opam:1.4@6fb665c3",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
@@ -2142,7 +2140,7 @@
         }
       ],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
         "@opam/astring@opam:0.8.3@4e5e17d5",
@@ -2150,7 +2148,7 @@
         "@esy-ocaml/fauxpam@0.1.0@d41d8cd9"
       ],
       "devDependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
         "@opam/astring@opam:0.8.3@4e5e17d5"
       ]
@@ -2306,7 +2304,7 @@
       },
       "overrides": [],
       "dependencies": [
-        "@opam/zarith@opam:1.7@1709d54c", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "@opam/zarith@opam:1.7@1709d54c", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/ocplib-endian@opam:1.0@aa720242",
         "@opam/ocb-stubblr@opam:0.1.1-1@e3fa0c78",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
@@ -2676,7 +2674,7 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
         "@opam/lwt@opam:4.2.1@08ba7e51", "@opam/fmt@opam:0.8.6@a06c130d",
@@ -2786,7 +2784,7 @@
       "overrides": [],
       "dependencies": [
         "ocaml@4.7.1004@d41d8cd9", "@opam/uutf@opam:1.0.2@4440868f",
-        "@opam/uchar@opam:0.0.2@c8218eea", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "@opam/uchar@opam:0.0.2@c8218eea", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
@@ -3024,7 +3022,7 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/stdlib-shims@opam:0.1.0@d957c903",
         "@opam/seq@opam:base@d8d7de1d",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
@@ -4086,7 +4084,7 @@
       },
       "overrides": [],
       "dependencies": [
-        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.0@61f4ccf9",
+        "ocaml@4.7.1004@d41d8cd9", "@opam/topkg@opam:1.0.1@a42c631e",
         "@opam/ocamlfind@opam:1.8.0@f744a0c5",
         "@opam/ocamlbuild@opam:0.14.0@427a2331",
         "@opam/base-bytes@opam:base@19d0c2ff",
