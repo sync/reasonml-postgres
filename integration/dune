@@ -1,0 +1,2 @@
+(library (name Integration) (public_name reasonml-postgres.integration)
+    (libraries reasonml-postgres.library rely.lib) (flags -linkall -g)) 

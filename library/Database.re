@@ -22,7 +22,7 @@ let or_error = m =>
 let connection_url =
   switch (Sys.getenv_opt("DB_CONNECTION")) {
   | Some(url) => url
-  | None => "postgresql://localhost:5432/community_dev"
+  | None => "postgresql://postgres:postgres@localhost:5432/community_dev"
   };
 
 /* This is the connection pool we will use for executing DB operations. */

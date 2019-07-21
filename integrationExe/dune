@@ -1,0 +1,3 @@
+(executable (name RunReasonmlPostgresIntegrations)
+    (public_name RunReasonmlPostgresIntegrations.exe)
+    (libraries reasonml-postgres.integration)) 
