@@ -27,6 +27,18 @@ esy install
 esy build
 ```
 
+## If you experience:
+
+`Operation not permitted mkdir ... .graphql_ppx_cache/`
+
+Temporarily add this to the esy section of your package.json.
+
+```
+"esy": {
+    "buildsInSource": "unsafe"
+}
+```
+
 ## Running Binary:
 
 After building the project, you can run the main binary that is produced.
