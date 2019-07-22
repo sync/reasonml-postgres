@@ -9,6 +9,10 @@ reasonml-postgres@0.0.0
 │   name:    TestReasonmlPostgres.exe
 │   require: reasonml-postgres/library
 │
+├─integration/
+│   name:    IntegrationReasonmlPostgres.exe
+│   require: reasonml-postgres/library
+│
 ├─library/
 │   library name: reasonml-postgres/library
 │   require:
