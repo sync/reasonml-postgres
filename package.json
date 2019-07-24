@@ -123,7 +123,7 @@
     "@opam/graphql": "sync/ocaml-graphql-server:graphql.opam#b0656b2",
     "@opam/graphql-cohttp": "sync/ocaml-graphql-server:graphql-cohttp.opam#b0656b2",
     "@opam/graphql-lwt": "sync/ocaml-graphql-server:graphql-lwt.opam#b0656b2",
-    "@opam/graphql_ppx": "baransu/graphql_ppx:esy.json#73921cf30be52761fea38c5ac913bd658a6a0917",
+    "@opam/graphql_ppx": "baransu/graphql_ppx:esy.json#7ab30b3",
     "@opam/jwt": "besport/ocaml-jwt:jwt.opam#6563a10",
     "@opam/nocrypto": "mirleft/ocaml-nocrypto:opam#ed7bb8d911dc340e36d85d335d9edb8339f0932d",
     "pesy": "esy/pesy#e690530"
