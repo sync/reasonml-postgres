@@ -1,4 +1,4 @@
-// redit
+// reddit
 
 open Reddit;
 
@@ -60,7 +60,7 @@ let subreddit: Graphql_lwt.Schema.typ(unit, option(subreddit)) =
 
 open Database;
 
-let link: Graphql_lwt.Schema.typ(unit, option(link)) =
+let link: Graphql_lwt.Schema.typ(unit, option(Link.t)) =
   Graphql_lwt.Schema.(
     obj("Link", ~doc="A database link", ~fields=_ =>
       [
@@ -69,15 +69,12 @@ let link: Graphql_lwt.Schema.typ(unit, option(link)) =
           ~doc="Unique link identifier",
           ~typ=non_null(int),
           ~args=Arg.[],
-          ~resolve=(_info, p: link) =>
-          p.id
+          ~resolve=(_info, p) =>
+          p.Link.id
         ),
         field(
-          "url",
-          ~typ=non_null(string),
-          ~args=Arg.[],
-          ~resolve=(_info, p: link) =>
-          p.url
+          "url", ~typ=non_null(string), ~args=Arg.[], ~resolve=(_info, p) =>
+          p.Link.url
         ),
       ]
     )

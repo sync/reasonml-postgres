@@ -9,4 +9,3 @@ reasonml-postgres.install
 .DS_Store
 *.install
 bootstrap
-.graphql_ppx_cache
