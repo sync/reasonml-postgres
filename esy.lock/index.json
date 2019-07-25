@@ -1,5 +1,5 @@
 {
-  "checksum": "4f9dfa1fe0f6168a7c4434e389229597",
+  "checksum": "b4bed21ee6e170142786c6e42c8a0ed9",
   "root": "reasonml-postgres@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -580,6 +580,7 @@
         "@opam/decoders-yojson@opam:0.2.0@144109ce",
         "@opam/conf-openssl@opam:1@83a4276f",
         "@opam/cohttp-lwt-unix@opam:2.2.0@2bb1d74c",
+        "@opam/cmdliner@opam:1.0.4@93208aac",
         "@opam/caqti-lwt@opam:1.0.0@53ded3ca",
         "@opam/caqti-driver-postgresql@opam:1.1.0@6f24c462",
         "@opam/base64@opam:3.2.0@6303aa3a",
