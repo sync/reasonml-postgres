@@ -1,6 +1,23 @@
-type link = {
-  id: int,
-  url: string,
+module Link = {
+  type t = {
+    id: int,
+    url: string,
+  };
+  let t = {
+    let encode = ({id, url}) => Ok((id, url));
+    let decode = ((id, url)) => Ok({id, url});
+    let rep = Caqti_type.(tup2(int, string));
+    Caqti_type.custom(~encode, ~decode, rep);
+  };
+};
+
+module Q = {
+  let get_all_links =
+    Caqti_request.collect(
+      Caqti_type.unit,
+      Link.t,
+      "SELECT id, url FROM links",
+    );
 };
 
 type error =
@@ -35,20 +52,8 @@ let pool =
   };
 
 let get_all_links = () => {
-  let get_all_query =
-    Caqti_request.collect(
-      Caqti_type.unit,
-      Caqti_type.(tup2(int, string)),
-      "SELECT id, url FROM links",
-    );
-
-  let get_all = (module C: Caqti_lwt.CONNECTION) =>
-    C.fold(
-      get_all_query,
-      ((id, url), acc) => [{id, url}, ...acc],
-      (),
-      [],
-    );
+  let get_all = (module Db: Caqti_lwt.CONNECTION) =>
+    Db.fold(Q.get_all_links, (link, acc) => [link, ...acc], (), []);
 
   let%lwt result = Caqti_lwt.Pool.use(get_all, pool) |> or_error;
 
