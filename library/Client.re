@@ -67,10 +67,10 @@ let get_subreddit = (~name) => {
   ];
 
   let query = SubredditQuery.make(~name, ());
-  execute_query(query);
+  execute_query(~query);
 };
 
-let get_links = (~name) => {
+let get_links = () => {
   Logs.debug(m => m("Getting links"));
 
   module LinksQuery = [%graphql
@@ -84,5 +84,5 @@ let get_links = (~name) => {
   ];
 
   let query = LinksQuery.make();
-  execute_query(query);
+  execute_query(~query);
 };
