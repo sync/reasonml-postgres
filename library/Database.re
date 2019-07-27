@@ -11,29 +11,12 @@ module Link = {
   };
 };
 
-module Q = {
-  let get_all_links =
-    Caqti_request.collect(
-      Caqti_type.unit,
-      Link.t,
-      "SELECT id, url FROM links",
-    );
-};
-
-type error =
-  | Database_error(string);
-
-let error_to_string = error =>
-  switch (error) {
-  | Database_error(string) => string
-  };
-
 /* Helper method to map Caqti errors to our own error type.
    val or_error : ('a, [> Caqti_error.t ]) result Lwt.t -> ('a, error) result Lwt.t */
 let or_error = m =>
   switch%lwt (m) {
   | Ok(a) => Ok(a) |> Lwt.return
-  | Error(e) => Error(Database_error(Caqti_error.show(e))) |> Lwt.return
+  | Error(e) => Error(Caqti_error.show(e)) |> Lwt.return
   };
 
 let connection_url =
@@ -51,19 +34,70 @@ let pool =
   | Error(err) => failwith(Caqti_error.show(err))
   };
 
+// Migrations
+
+module Migrations = {
+  let migrate_query =
+    Caqti_request.exec(
+      Caqti_type.unit,
+      {| CREATE TABLE links (
+          id BIGSERIAL PRIMARY KEY,
+          url character varying(255)
+       )
+    |},
+    );
+
+  let rollback_query =
+    Caqti_request.exec(Caqti_type.unit, "DROP TABLE links");
+};
+
+let migrate = () => {
+  let migrate' = (module Db: Caqti_lwt.CONNECTION) =>
+    Db.exec(Migrations.migrate_query, ());
+
+  Caqti_lwt.Pool.use(migrate', pool) |> or_error;
+};
+
+let rollback = () => {
+  let rollback' = (module Db: Caqti_lwt.CONNECTION) =>
+    Db.exec(Migrations.rollback_query, ());
+
+  Caqti_lwt.Pool.use(rollback', pool) |> or_error;
+};
+
+// Queries
+
+module Queries = {
+  let add_link_query =
+    Caqti_request.exec(
+      Caqti_type.string,
+      "INSERT INTO links (url) VALUES (?)",
+    );
+
+  let get_all_links =
+    Caqti_request.collect(
+      Caqti_type.unit,
+      Link.t,
+      "SELECT id, url FROM links",
+    );
+};
+
+let add_url = content => {
+  let add' = (content, module Db: Caqti_lwt.CONNECTION) =>
+    Db.exec(Queries.add_link_query, content);
+
+  Caqti_lwt.Pool.use(add'(content), pool) |> or_error;
+};
+
+let seed = () => {
+  Lwt_list.map_p(add_url, ["https://www.test.com", "https://www.apple.com"]);
+};
+
 let get_all = query => {
   let get_all = (module Db: Caqti_lwt.CONNECTION) =>
     Db.fold(query, (row, acc) => [row, ...acc], (), []);
 
-  let%lwt result = Caqti_lwt.Pool.use(get_all, pool) |> or_error;
-
-  (
-    switch (result) {
-    | Ok(rows) => Ok(rows)
-    | Error(err) => Error(error_to_string(err))
-    }
-  )
-  |> Lwt.return;
+  Caqti_lwt.Pool.use(get_all, pool) |> or_error;
 };
 
-let get_all_links = () => get_all(Q.get_all_links);
+let get_all_links = () => get_all(Queries.get_all_links);
