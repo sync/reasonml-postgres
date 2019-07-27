@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "description": "My Project",
   "esy": {
-    "build": "refmterr dune build -p #{self.name}",
+    "build": "dune build -p #{self.name}",
+    "buildDev": [
+      "refmterr dune build -p #{self.name}"
+    ],
     "release": {
       "releasedBinaries": [
         "ReasonmlPostgresApp.exe"
@@ -68,6 +71,10 @@
         "pps",
         "lwt_ppx",
         "graphql_ppx"
+      ],
+      "flags": [
+        "-w",
+        "-32"
       ]
     },
     "executable": {
@@ -85,7 +92,8 @@
     "integration": "esy x RunReasonmlPostgresIntegrations.exe",
     "e2e": "start-server-and-test start http-get://localhost:8080 integration",
     "format": "bash -c 'refmt --in-place {library,executable,test}/*.re'",
-    "update-schema": "scripts/sendIntrospectionQuery.js http://localhost:8080/graphql"
+    "update-schema": "scripts/sendIntrospectionQuery.js http://localhost:8080/graphql",
+    "repl": "esy dune utop library"
   },
   "dependencies": {
     "@esy-ocaml/reason": "*",
