@@ -51,17 +51,19 @@ let pool =
   | Error(err) => failwith(Caqti_error.show(err))
   };
 
-let get_all_links = () => {
+let get_all = query => {
   let get_all = (module Db: Caqti_lwt.CONNECTION) =>
-    Db.fold(Q.get_all_links, (link, acc) => [link, ...acc], (), []);
+    Db.fold(query, (row, acc) => [row, ...acc], (), []);
 
   let%lwt result = Caqti_lwt.Pool.use(get_all, pool) |> or_error;
 
   (
     switch (result) {
-    | Ok(links) => Ok(links)
+    | Ok(rows) => Ok(rows)
     | Error(err) => Error(error_to_string(err))
     }
   )
   |> Lwt.return;
 };
+
+let get_all_links = () => get_all(Q.get_all_links);

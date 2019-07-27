@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "My Project",
   "esy": {
-    "build": "dune build -p #{self.name}",
+    "build": "refmterr dune build -p #{self.name}",
     "release": {
       "releasedBinaries": [
         "ReasonmlPostgresApp.exe"
