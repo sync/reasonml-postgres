@@ -2,7 +2,7 @@ FROM alpine:3.9 as esy
 
 ENV TERM=dumb LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/lib
 
-ARG DB_CONNECTION=postgresql://postgres:postgres@localhost:5432/community_dev
+ARG DB_CONNECTION=postgresql://postgres:postgres@localhost:5432/community_test
 ENV DB_CONNECTION ${DB_CONNECTION}
 
 RUN apk add --no-cache ca-certificates wget bash curl perl-utils git patch gcc g++ musl-dev make m4 gmp-dev linux-headers openssl-dev postgresql-libs postgresql-dev nodejs nodejs-npm
