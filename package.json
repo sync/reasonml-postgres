@@ -19,6 +19,11 @@
         "reasonml-postgres/library",
         "rely.lib"
       ],
+      "preprocess": [
+        "pps",
+        "lwt_ppx",
+        "graphql_ppx"
+      ],
       "flags": [
         "-linkall",
         "-g"

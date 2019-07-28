@@ -1,2 +1,3 @@
 (library (name Test) (public_name reasonml-postgres.test)
-    (libraries reasonml-postgres.library rely.lib) (flags -linkall -g)) 
+    (libraries reasonml-postgres.library rely.lib) (flags -linkall -g)
+    (preprocess (pps lwt_ppx graphql_ppx))) 

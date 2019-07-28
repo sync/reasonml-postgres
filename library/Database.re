@@ -75,6 +75,13 @@ module Q = {
       Link.t,
       "SELECT id, url FROM links",
     );
+
+  let get_tablenames =
+    Caqti_request.collect(
+      Caqti_type.unit,
+      Caqti_type.string,
+      "SELECT tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema'",
+    );
 };
 
 let add_url = content => {
@@ -96,3 +103,5 @@ let get_all = query => {
 };
 
 let get_all_links = () => get_all(Q.get_all_links);
+
+let get_tablenames = () => get_all(Q.get_tablenames);
