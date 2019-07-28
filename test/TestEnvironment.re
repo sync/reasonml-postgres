@@ -3,7 +3,7 @@ open Library.Environment;
 
 describe("Environment", ({test, _}) => {
   test("by default", ({expect}) => {
-    let environment = current();
+    let environment = CurrentEnvironment.values;
 
     expect.string(environment.db_connection).toEqual(
       "postgresql://postgres:postgres@localhost:5432/community_test",
@@ -12,21 +12,40 @@ describe("Environment", ({test, _}) => {
 
   test("with a connection", ({expect}) => {
     let fake_connection = "test-fake";
-    let environment = current(~db_connection=Some(fake_connection), ());
+
+    module TestEnvProvider: EnvironmentProvider = {
+      let env = None;
+      let db_connection = Some(fake_connection);
+    };
+
+    module TestEnvironment = Make(TestEnvProvider);
+    let environment = TestEnvironment.values;
 
     expect.string(environment.db_connection).toEqual(fake_connection);
   });
 
   test("with a test env and a connection", ({expect}) => {
     let fake_connection = "test-fake";
-    let environment =
-      current(~env=Some("TEST"), ~db_connection=Some(fake_connection), ());
+
+    module TestEnvProvider: EnvironmentProvider = {
+      let env = Some("TEST");
+      let db_connection = Some(fake_connection);
+    };
+
+    module TestEnvironment = Make(TestEnvProvider);
+    let environment = TestEnvironment.values;
 
     expect.string(environment.db_connection).toEqual(fake_connection);
   });
 
   test("without a test env and a connection", ({expect}) => {
-    let environment = current(~env=None, ~db_connection=None, ());
+    module TestEnvProvider: EnvironmentProvider = {
+      let env = None;
+      let db_connection = None;
+    };
+
+    module TestEnvironment = Make(TestEnvProvider);
+    let environment = TestEnvironment.values;
 
     expect.string(environment.db_connection).toEqual(
       "postgresql://postgres:postgres@localhost:5432/community_dev",
