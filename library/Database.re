@@ -17,9 +17,9 @@ let or_error = m =>
   | Error(e) => Error(Caqti_error.show(e)) |> Lwt.return
   };
 
-open Environment;
+open Config;
 
-let connection_url = CurrentEnvironment.values.db_connection;
+let connection_url = Environment.values.db_connection;
 
 let pool =
   switch (
