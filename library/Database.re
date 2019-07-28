@@ -11,21 +11,16 @@ module Link = {
   };
 };
 
-/* Helper method to map Caqti errors to our own error type.
-   val or_error : ('a, [> Caqti_error.t ]) result Lwt.t -> ('a, error) result Lwt.t */
 let or_error = m =>
   switch%lwt (m) {
   | Ok(a) => Ok(a) |> Lwt.return
   | Error(e) => Error(Caqti_error.show(e)) |> Lwt.return
   };
 
-let connection_url =
-  switch (Sys.getenv_opt("DB_CONNECTION")) {
-  | Some(url) => url
-  | None => "postgresql://postgres:postgres@localhost:5432/community_dev"
-  };
+open Environment;
 
-/* This is the connection pool we will use for executing DB operations. */
+let connection_url = CurrentEnvironment.values.db_connection;
+
 let pool =
   switch (
     Caqti_lwt.connect_pool(~max_size=10, Uri.of_string(connection_url))
@@ -36,7 +31,7 @@ let pool =
 
 // Migrations
 
-module Migrations = {
+module M = {
   let migrate_query =
     Caqti_request.exec(
       Caqti_type.unit,
@@ -53,21 +48,21 @@ module Migrations = {
 
 let migrate = () => {
   let migrate' = (module Db: Caqti_lwt.CONNECTION) =>
-    Db.exec(Migrations.migrate_query, ());
+    Db.exec(M.migrate_query, ());
 
   Caqti_lwt.Pool.use(migrate', pool) |> or_error;
 };
 
 let rollback = () => {
   let rollback' = (module Db: Caqti_lwt.CONNECTION) =>
-    Db.exec(Migrations.rollback_query, ());
+    Db.exec(M.rollback_query, ());
 
   Caqti_lwt.Pool.use(rollback', pool) |> or_error;
 };
 
 // Queries
 
-module Queries = {
+module Q = {
   let add_link_query =
     Caqti_request.exec(
       Caqti_type.string,
@@ -84,13 +79,13 @@ module Queries = {
 
 let add_url = content => {
   let add' = (content, module Db: Caqti_lwt.CONNECTION) =>
-    Db.exec(Queries.add_link_query, content);
+    Db.exec(Q.add_link_query, content);
 
   Caqti_lwt.Pool.use(add'(content), pool) |> or_error;
 };
 
-let seed = () => {
-  Lwt_list.map_p(add_url, ["https://www.test.com", "https://www.apple.com"]);
+let seed = (~urls=["https://www.test.com", "https://www.apple.com"], ()) => {
+  Lwt_list.map_p(add_url, urls);
 };
 
 let get_all = query => {
@@ -100,4 +95,4 @@ let get_all = query => {
   Caqti_lwt.Pool.use(get_all, pool) |> or_error;
 };
 
-let get_all_links = () => get_all(Queries.get_all_links);
+let get_all_links = () => get_all(Q.get_all_links);
