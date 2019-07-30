@@ -1,5 +1,5 @@
 {
-  "checksum": "4f9dfa1fe0f6168a7c4434e389229597",
+  "checksum": "ff9fd12e457a35690f02d272430fd5b3",
   "root": "reasonml-postgres@link-dev:./package.json",
   "node": {
     "yarn-pkg-config@github:esy-ocaml/yarn-pkg-config#cca65f99674ed2d954d28788edeb8c57fada5ed0@d41d8cd9": {
@@ -589,7 +589,7 @@
       "devDependencies": [
         "yargs@14.0.0@d41d8cd9", "start-server-and-test@1.9.1@d41d8cd9",
         "request@2.88.0@d41d8cd9", "refmterr@3.1.10@d41d8cd9",
-        "pesy@github:esy/pesy#e690530@d41d8cd9",
+        "pesy@github:esy/pesy#e15824e@d41d8cd9",
         "@reason-native/rely@3.1.0@d41d8cd9",
         "@opam/utop@opam:2.4.0@e9165610", "@opam/merlin@opam:3.3.2@7a364181",
         "@opam/dune@opam:1.11.0@9ec4211e", "@esy-ocaml/rtop@3.3.0@d41d8cd9"
@@ -681,13 +681,13 @@
       "dependencies": [ "event-stream@3.3.4@d41d8cd9" ],
       "devDependencies": []
     },
-    "pesy@github:esy/pesy#e690530@d41d8cd9": {
-      "id": "pesy@github:esy/pesy#e690530@d41d8cd9",
+    "pesy@github:esy/pesy#e15824e@d41d8cd9": {
+      "id": "pesy@github:esy/pesy#e15824e@d41d8cd9",
       "name": "pesy",
-      "version": "github:esy/pesy#e690530",
+      "version": "github:esy/pesy#e15824e",
       "source": {
         "type": "install",
-        "source": [ "github:esy/pesy#e690530" ]
+        "source": [ "github:esy/pesy#e15824e" ]
       },
       "overrides": [],
       "dependencies": [
