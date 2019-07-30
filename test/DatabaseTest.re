@@ -12,7 +12,7 @@ let {describe, describeSkip, describeOnly} =
      )
   |> build;
 
-describe("rollback", ({describe, test, _}) => {
+describe("Database", ({describe, test, _}) => {
   describe("rollback", ({test, _}) => {
     test("should drop the table", ({expect}) => {
       let result = rollback() |> Lwt_main.run;
