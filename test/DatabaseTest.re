@@ -1,14 +1,12 @@
 open TestFramework;
 open Library.Database;
-open Lwt.Infix;
 
 let {describe, describeSkip, describeOnly} =
   describeConfig
   |> withLifecycle(testLifecycle =>
        testLifecycle
-       |> beforeEach(() =>
-            rollback() >>= (_ => migrate()) >>= (_ => seed()) |> Lwt_main.run
-          )
+       |> beforeEach(Utils.Database.reset)
+       |> afterAll(Utils.Database.reset)
      )
   |> build;
 
