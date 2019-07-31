@@ -31,6 +31,16 @@ esy install
 esy build
 ```
 
+### MacOS:
+
+```
+brew install postgres
+```
+
+### Linux:
+
+see Dockerfile
+
 ## If you experience:
 
 `Operation not permitted mkdir ... .graphql_ppx_cache/`
