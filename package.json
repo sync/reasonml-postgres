@@ -127,7 +127,7 @@
     "@opam/utop": "*",
     "@reason-native/rely": "*",
     "pesy": "*",
-    "refmterr": "3.1.10",
+    "refmterr": "3.2.2",
     "yargs": "*",
     "request": "*",
     "start-server-and-test": "*"
