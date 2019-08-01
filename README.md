@@ -31,6 +31,18 @@ esy install
 esy build
 ```
 
+### MacOS: 
+
+```
+brew install postgres
+```
+
+### Ubuntu:
+
+```
+sudo apt-get install libpq-dev libssl-dev pkg-config
+```
+
 ## If you experience:
 
 `Operation not permitted mkdir ... .graphql_ppx_cache/`
