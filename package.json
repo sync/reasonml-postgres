@@ -1,7 +1,7 @@
 {
   "name": "reasonml-postgres",
   "version": "0.0.0",
-  "description": "My Project",
+  "description": "GraphQL server powered by postgres",
   "esy": {
     "build": "dune build -p #{self.name}",
     "buildDev": [
@@ -110,15 +110,15 @@
     "@opam/decoders-yojson": "*",
     "@opam/digestif": "*",
     "@opam/fmt": "*",
-    "@opam/graphql": "*",
+    "@opam/graphql_ppx": "*",
     "@opam/graphql-cohttp": "*",
     "@opam/graphql-lwt": "*",
-    "@opam/graphql_ppx": "*",
+    "@opam/graphql": "*",
     "@opam/jwt": "*",
     "@opam/logs": "*",
     "@opam/lwt_ppx": "*",
-    "ocaml": "4.7.x",
-    "@opam/lwt_ssl": "*"
+    "@opam/lwt_ssl": "*",
+    "ocaml": "4.7.x"
   },
   "devDependencies": {
     "@esy-ocaml/rtop": "*",
@@ -127,16 +127,16 @@
     "@opam/utop": "*",
     "@reason-native/rely": "*",
     "pesy": "*",
-    "refmterr": "3.1.10",
-    "yargs": "*",
+    "refmterr": "*",
     "request": "*",
-    "start-server-and-test": "*"
+    "start-server-and-test": "*",
+    "yargs": "*"
   },
   "resolutions": {
-    "@opam/graphql": "sync/ocaml-graphql-server:graphql.opam#b0656b2",
+    "@opam/graphql_ppx": "baransu/graphql_ppx:esy.json#7ab30b3",
     "@opam/graphql-cohttp": "sync/ocaml-graphql-server:graphql-cohttp.opam#b0656b2",
     "@opam/graphql-lwt": "sync/ocaml-graphql-server:graphql-lwt.opam#b0656b2",
-    "@opam/graphql_ppx": "baransu/graphql_ppx:esy.json#7ab30b3",
+    "@opam/graphql": "sync/ocaml-graphql-server:graphql.opam#b0656b2",
     "@opam/jwt": "besport/ocaml-jwt:jwt.opam#6563a10",
     "@opam/nocrypto": "mirleft/ocaml-nocrypto:opam#ed7bb8d911dc340e36d85d335d9edb8339f0932d",
     "pesy": "esy/pesy#e15824e"
