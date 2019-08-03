@@ -31,11 +31,13 @@ esy install
 esy build
 ```
 
-### MacOS: 
+### MacOS:
 
 ```
 brew install postgres
 ```
+
+Also make sure you disable esy sandboxing
 
 ### Ubuntu:
 

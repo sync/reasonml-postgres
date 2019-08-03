@@ -1,7 +1,7 @@
 {
   "name": "reasonml-postgres",
   "version": "0.0.0",
-  "description": "My Project",
+  "description": "GraphQL server powered by postgres",
   "esy": {
     "build": "dune build -p #{self.name}",
     "buildDev": [
@@ -127,7 +127,7 @@
     "@opam/utop": "*",
     "@reason-native/rely": "*",
     "pesy": "*",
-    "refmterr": "3.1.10",
+    "refmterr": "*",
     "yargs": "*",
     "request": "*",
     "start-server-and-test": "*"
