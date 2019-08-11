@@ -129,21 +129,21 @@
       "dependencies": [ "isexe@2.0.0@d41d8cd9" ],
       "devDependencies": []
     },
-    "wait-on@3.2.0@d41d8cd9": {
-      "id": "wait-on@3.2.0@d41d8cd9",
+    "wait-on@3.3.0@d41d8cd9": {
+      "id": "wait-on@3.3.0@d41d8cd9",
       "name": "wait-on",
-      "version": "3.2.0",
+      "version": "3.3.0",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://registry.npmjs.org/wait-on/-/wait-on-3.2.0.tgz#sha1:c83924df0fc42a675c678324c49c769d378bcb85"
+          "archive:https://registry.npmjs.org/wait-on/-/wait-on-3.3.0.tgz#sha1:9940981d047a72a9544a97b8b5fca45b2170a082"
         ]
       },
       "overrides": [],
       "dependencies": [
         "rx@4.1.0@d41d8cd9", "request@2.88.0@d41d8cd9",
-        "minimist@1.2.0@d41d8cd9", "joi@13.7.0@d41d8cd9",
-        "core-js@2.6.9@d41d8cd9"
+        "minimist@1.2.0@d41d8cd9", "core-js@2.6.9@d41d8cd9",
+        "@hapi/joi@15.1.0@d41d8cd9"
       ],
       "devDependencies": []
     },
@@ -234,20 +234,6 @@
       "dependencies": [ "punycode@1.4.1@d41d8cd9", "psl@1.3.0@d41d8cd9" ],
       "devDependencies": []
     },
-    "topo@3.0.3@d41d8cd9": {
-      "id": "topo@3.0.3@d41d8cd9",
-      "name": "topo",
-      "version": "3.0.3",
-      "source": {
-        "type": "install",
-        "source": [
-          "archive:https://registry.npmjs.org/topo/-/topo-3.0.3.tgz#sha1:d5a67fb2e69307ebeeb08402ec2a2a6f5f7ad95c"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [ "hoek@6.1.3@d41d8cd9" ],
-      "devDependencies": []
-    },
     "through@2.3.8@d41d8cd9": {
       "id": "through@2.3.8@d41d8cd9",
       "name": "through",
@@ -322,19 +308,19 @@
       "dependencies": [ "duplexer@0.1.1@d41d8cd9" ],
       "devDependencies": []
     },
-    "start-server-and-test@1.9.1@d41d8cd9": {
-      "id": "start-server-and-test@1.9.1@d41d8cd9",
+    "start-server-and-test@1.10.0@d41d8cd9": {
+      "id": "start-server-and-test@1.10.0@d41d8cd9",
       "name": "start-server-and-test",
-      "version": "1.9.1",
+      "version": "1.10.0",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://registry.npmjs.org/start-server-and-test/-/start-server-and-test-1.9.1.tgz#sha1:401fcf869c2a10b7d224a6ef2cfc38e2a69954a2"
+          "archive:https://registry.npmjs.org/start-server-and-test/-/start-server-and-test-1.10.0.tgz#sha1:a7cd88932a52b42bc9de184430a498338e426c0b"
         ]
       },
       "overrides": [],
       "dependencies": [
-        "wait-on@3.2.0@d41d8cd9", "ps-tree@1.2.0@d41d8cd9",
+        "wait-on@3.3.0@d41d8cd9", "ps-tree@1.2.0@d41d8cd9",
         "lazy-ass@1.6.0@d41d8cd9", "execa@0.11.0@d41d8cd9",
         "debug@4.1.1@d41d8cd9", "check-more-types@2.24.0@d41d8cd9",
         "bluebird@3.5.5@d41d8cd9"
@@ -590,7 +576,7 @@
         "@esy-ocaml/reason@3.5.0@d41d8cd9"
       ],
       "devDependencies": [
-        "yargs@14.0.0@d41d8cd9", "start-server-and-test@1.9.1@d41d8cd9",
+        "yargs@14.0.0@d41d8cd9", "start-server-and-test@1.10.0@d41d8cd9",
         "request@2.88.0@d41d8cd9", "refmterr@3.2.2@d41d8cd9",
         "pesy@github:esy/pesy#e15824e@d41d8cd9",
         "@reason-native/rely@3.1.0@d41d8cd9",
@@ -1058,23 +1044,6 @@
       "dependencies": [],
       "devDependencies": []
     },
-    "joi@13.7.0@d41d8cd9": {
-      "id": "joi@13.7.0@d41d8cd9",
-      "name": "joi",
-      "version": "13.7.0",
-      "source": {
-        "type": "install",
-        "source": [
-          "archive:https://registry.npmjs.org/joi/-/joi-13.7.0.tgz#sha1:cfd85ebfe67e8a1900432400b4d03bbd93fb879f"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [
-        "topo@3.0.3@d41d8cd9", "isemail@3.2.0@d41d8cd9",
-        "hoek@5.0.4@d41d8cd9"
-      ],
-      "devDependencies": []
-    },
     "isstream@0.1.2@d41d8cd9": {
       "id": "isstream@0.1.2@d41d8cd9",
       "name": "isstream",
@@ -1101,20 +1070,6 @@
       },
       "overrides": [],
       "dependencies": [],
-      "devDependencies": []
-    },
-    "isemail@3.2.0@d41d8cd9": {
-      "id": "isemail@3.2.0@d41d8cd9",
-      "name": "isemail",
-      "version": "3.2.0",
-      "source": {
-        "type": "install",
-        "source": [
-          "archive:https://registry.npmjs.org/isemail/-/isemail-3.2.0.tgz#sha1:59310a021931a9fb06bbb51e155ce0b3f236832c"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [ "punycode@2.1.1@d41d8cd9" ],
       "devDependencies": []
     },
     "is-typedarray@1.0.0@d41d8cd9": {
@@ -1174,34 +1129,6 @@
         "sshpk@1.16.1@d41d8cd9", "jsprim@1.4.1@d41d8cd9",
         "assert-plus@1.0.0@d41d8cd9"
       ],
-      "devDependencies": []
-    },
-    "hoek@6.1.3@d41d8cd9": {
-      "id": "hoek@6.1.3@d41d8cd9",
-      "name": "hoek",
-      "version": "6.1.3",
-      "source": {
-        "type": "install",
-        "source": [
-          "archive:https://registry.npmjs.org/hoek/-/hoek-6.1.3.tgz#sha1:73b7d33952e01fe27a38b0457294b79dd8da242c"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [],
-      "devDependencies": []
-    },
-    "hoek@5.0.4@d41d8cd9": {
-      "id": "hoek@5.0.4@d41d8cd9",
-      "name": "hoek",
-      "version": "5.0.4",
-      "source": {
-        "type": "install",
-        "source": [
-          "archive:https://registry.npmjs.org/hoek/-/hoek-5.0.4.tgz#sha1:0f7fa270a1cafeb364a4b2ddfaa33f864e4157da"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [],
       "devDependencies": []
     },
     "har-validator@5.1.3@d41d8cd9": {
@@ -3037,20 +2964,20 @@
       ],
       "devDependencies": [ "ocaml@4.7.1004@d41d8cd9" ]
     },
-    "@opam/merlin-extend@opam:0.4@64c45329": {
-      "id": "@opam/merlin-extend@opam:0.4@64c45329",
+    "@opam/merlin-extend@opam:0.5@a5dd7d4b": {
+      "id": "@opam/merlin-extend@opam:0.5@a5dd7d4b",
       "name": "@opam/merlin-extend",
-      "version": "opam:0.4",
+      "version": "opam:0.5",
       "source": {
         "type": "install",
         "source": [
-          "archive:https://opam.ocaml.org/cache/md5/06/0663a58f2c45fad71615fbf0f6dd2e51#md5:0663a58f2c45fad71615fbf0f6dd2e51",
-          "archive:https://github.com/let-def/merlin-extend/archive/v0.4.tar.gz#md5:0663a58f2c45fad71615fbf0f6dd2e51"
+          "archive:https://opam.ocaml.org/cache/sha256/ca/ca3a38c360c7d4827eb4789abf7a6aa4b6e3b4e3c3ef69a5be64dce4601ec227#sha256:ca3a38c360c7d4827eb4789abf7a6aa4b6e3b4e3c3ef69a5be64dce4601ec227",
+          "archive:https://github.com/let-def/merlin-extend/releases/download/v0.5/merlin-extend-v0.5.tbz#sha256:ca3a38c360c7d4827eb4789abf7a6aa4b6e3b4e3c3ef69a5be64dce4601ec227"
         ],
         "opam": {
           "name": "merlin-extend",
-          "version": "0.4",
-          "path": "esy.lock/opam/merlin-extend.0.4"
+          "version": "0.5",
+          "path": "esy.lock/opam/merlin-extend.0.5"
         }
       },
       "overrides": [],
@@ -4813,6 +4740,93 @@
         "ocaml@4.7.1004@d41d8cd9", "@opam/base-bytes@opam:base@19d0c2ff"
       ]
     },
+    "@hapi/topo@3.1.3@d41d8cd9": {
+      "id": "@hapi/topo@3.1.3@d41d8cd9",
+      "name": "@hapi/topo",
+      "version": "3.1.3",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/@hapi/topo/-/topo-3.1.3.tgz#sha1:c7a02e0d936596d29f184e6d7fdc07e8b5efce11"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [ "@hapi/hoek@8.2.0@d41d8cd9" ],
+      "devDependencies": []
+    },
+    "@hapi/marker@1.0.0@d41d8cd9": {
+      "id": "@hapi/marker@1.0.0@d41d8cd9",
+      "name": "@hapi/marker",
+      "version": "1.0.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/@hapi/marker/-/marker-1.0.0.tgz#sha1:65b0b2b01d1be06304886ce9b4b77b1bfb21a769"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [],
+      "devDependencies": []
+    },
+    "@hapi/joi@15.1.0@d41d8cd9": {
+      "id": "@hapi/joi@15.1.0@d41d8cd9",
+      "name": "@hapi/joi",
+      "version": "15.1.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/@hapi/joi/-/joi-15.1.0.tgz#sha1:940cb749b5c55c26ab3b34ce362e82b6162c8e7a"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [
+        "@hapi/topo@3.1.3@d41d8cd9", "@hapi/marker@1.0.0@d41d8cd9",
+        "@hapi/hoek@6.2.4@d41d8cd9", "@hapi/address@2.0.0@d41d8cd9"
+      ],
+      "devDependencies": []
+    },
+    "@hapi/hoek@8.2.0@d41d8cd9": {
+      "id": "@hapi/hoek@8.2.0@d41d8cd9",
+      "name": "@hapi/hoek",
+      "version": "8.2.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/@hapi/hoek/-/hoek-8.2.0.tgz#sha1:079a133be240ff866ad8532eaa46a691bdd91117"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [],
+      "devDependencies": []
+    },
+    "@hapi/hoek@6.2.4@d41d8cd9": {
+      "id": "@hapi/hoek@6.2.4@d41d8cd9",
+      "name": "@hapi/hoek",
+      "version": "6.2.4",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/@hapi/hoek/-/hoek-6.2.4.tgz#sha1:4b95fbaccbfba90185690890bdf1a2fbbda10595"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [],
+      "devDependencies": []
+    },
+    "@hapi/address@2.0.0@d41d8cd9": {
+      "id": "@hapi/address@2.0.0@d41d8cd9",
+      "name": "@hapi/address",
+      "version": "2.0.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/@hapi/address/-/address-2.0.0.tgz#sha1:9f05469c88cb2fd3dcd624776b54ee95c312126a"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [],
+      "devDependencies": []
+    },
     "@esy-ocaml/substs@0.0.1@d41d8cd9": {
       "id": "@esy-ocaml/substs@0.0.1@d41d8cd9",
       "name": "@esy-ocaml/substs",
@@ -4863,7 +4877,7 @@
         "ocaml@4.7.1004@d41d8cd9", "@opam/result@opam:1.4@6fb665c3",
         "@opam/ocamlfind@opam:1.8.1@c65fe06a",
         "@opam/ocaml-migrate-parsetree@opam:1.4.0@7f2e4334",
-        "@opam/merlin-extend@opam:0.4@64c45329",
+        "@opam/merlin-extend@opam:0.5@a5dd7d4b",
         "@opam/menhir@opam:20190626@bbeb8953",
         "@opam/dune@opam:1.11.0@9ec4211e"
       ],
