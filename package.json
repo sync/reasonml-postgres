@@ -98,7 +98,8 @@
     "e2e": "start-server-and-test start http-get://localhost:8080 integration",
     "format": "bash -c 'refmt --in-place {library,executable,test}/*.re'",
     "update-schema": "scripts/sendIntrospectionQuery.js http://localhost:8080/graphql",
-    "repl": "esy dune utop library"
+    "repl": "esy dune utop library",
+    "build-watch": "esy dune build -p #{self.name} --watch"
   },
   "dependencies": {
     "@esy-ocaml/reason": "*",
