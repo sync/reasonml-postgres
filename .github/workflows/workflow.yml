@@ -1,0 +1,76 @@
+name: Main workflow
+on: [push]
+jobs:
+  build:
+    name: Build, Test, e2e and Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Build Docker image
+        uses: actions/docker/cli@master
+        env:
+          DB_CONNECTION: ${{ secrets.DB_CONNECTION }}
+        with:
+          args: build -t reasonml-postgres --build-arg DB_CONNECTION=${DB_CONNECTION} .
+
+      - name: Setup Google Cloud
+        uses: actions/gcloud/auth@master
+        env:
+          GCLOUD_AUTH: ${{ secrets.GCLOUD_AUTH }}
+
+      - name: Tag image for GCR
+        uses: actions/docker/tag@master
+        env:
+          APPLICATION_NAME: reasonml-postgres
+          PROJECT_ID: radiant-destiny-219301
+        with:
+          args: reasonml-postgres gcr.io/$PROJECT_ID/$APPLICATION_NAME
+
+      - name: Set Credential Helper for Docker
+        uses: actions/gcloud/cli@master
+        with:
+          args: auth configure-docker --quiet
+
+      - name: Push image to GCR
+        uses: actions/gcloud/cli@master
+        env:
+          APPLICATION_NAME: reasonml-postgres
+          PROJECT_ID: radiant-destiny-219301
+        with:
+          entrypoint: sh
+          args: -c "docker push gcr.io/$PROJECT_ID/$APPLICATION_NAME"
+
+      - name: Load GKE kube credentials
+        uses: actions/gcloud/cli@master
+        env:
+          CLUSTER_NAME: batman
+          PROJECT_ID: radiant-destiny-219301
+        with:
+          args: container clusters get-credentials $CLUSTER_NAME --zone us-central1-a --project $PROJECT_ID
+
+      - name: Deploy to GKE
+        uses: docker://gcr.io/cloud-builders/kubectl
+        env:
+          APPLICATION_NAME: reasonml-postgres
+          DEPLOYMENT_NAME: reasonml-postgres-deployment
+          PROJECT_ID: radiant-destiny-219301
+          CLOUDSDK_COMPUTE_ZONE: us-central1-a
+          CLOUDSDK_CONTAINER_CLUSTER: batman
+          CLOUDSDK_CORE_PROJECT: radiant-destiny-219301
+        with:
+          entrypoint: sh
+          args:
+            -l -c "SHORT_REF=$(echo ${GITHUB_SHA} | head -c7) && cat reasonml-postgres-deployment.yaml | sed 's/PROJECT_ID/'\"$PROJECT_ID\"'/'
+            | sed 's/APPLICATION_NAME/'\"$APPLICATION_NAME\"'/' | sed 's/TAG/'\"$SHORT_REF\"'/'
+            | kubectl apply -f - "
+
+      - name: Verify GKE deployment
+        uses: docker://gcr.io/cloud-builders/kubectl
+        env:
+          DEPLOYMENT_NAME: reasonml-postgres-deployment
+          CLOUDSDK_COMPUTE_ZONE: us-central1-a
+          CLOUDSDK_CONTAINER_CLUSTER: batman
+          CLOUDSDK_CORE_PROJECT: radiant-destiny-219301
+        with:
+          args: rollout status deployment/reasonml-postgres-deployment

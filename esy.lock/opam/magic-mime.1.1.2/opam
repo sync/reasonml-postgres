@@ -33,6 +33,9 @@ build: [
 ]
 url {
   src:
-    "https://github.com/mirage/ocaml-magic-mime/releases/download/v1.1.1/magic-mime-v1.1.1.tbz"
-  checksum: "md5=8430a2686206517f2753e47c9c038b5c"
+    "https://github.com/mirage/ocaml-magic-mime/releases/download/v1.1.2/magic-mime-v1.1.2.tbz"
+  checksum: [
+    "sha256=0c590bbc747531b56d392ee8f063d879df1e2026ba2dfa2d1bc98c9a9acb04eb"
+    "sha512=8264db78adc2c75b8adabc23c26ad34eab98383bd3a8f2068f2236ff3425d653c0238fbd7361e55a3d70d843413ef8671b6e97293074b4d3a1e300628d5292ab"
+  ]
 }
